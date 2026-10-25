@@ -1,0 +1,190 @@
+/* Coming Soon Page Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-kfm {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(18px);
+  }
+  55% {
+    transform: translateY(-12px);
+  }
+  75% {
+    transform: translateY(6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out 0.3s both;
+}
+
+.animate-bounce-kfm {
+  animation: bounce-kfm 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.arabic-text {
+  direction: rtl;
+  text-align: right;
+  unicode-bidi: embed;
+}
+
+/* Dragon's Blood Hero Animations */
+@keyframes slow-scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.03);
+  }
+}
+
+.animate-slow-scale {
+  animation: slow-scale 20s ease-in-out infinite alternate;
+}
+
+@keyframes dust-drift-1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.05;
+  }
+  50% {
+    transform: translate(15px, -25px) scale(1.2);
+    opacity: 0.25;
+  }
+  100% {
+    transform: translate(30px, -50px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes dust-drift-2 {
+  0% {
+    transform: translate(0, 0) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-20px, -15px) scale(1.1);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(-40px, -30px) scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes dust-drift-3 {
+  0% {
+    transform: translate(0, 0) scale(1.1);
+    opacity: 0.05;
+  }
+  50% {
+    transform: translate(10px, -15px) scale(0.9);
+    opacity: 0.15;
+  }
+  100% {
+    transform: translate(20px, -30px) scale(1.1);
+    opacity: 0;
+  }
+}
+
+.animate-dust-1 {
+  animation: dust-drift-1 25s ease-in-out infinite;
+}
+
+.animate-dust-2 {
+  animation: dust-drift-2 32s ease-in-out infinite;
+}
+
+.animate-dust-3 {
+  animation: dust-drift-3 40s ease-in-out infinite;
+}
+
+/* ── Skin Intelligence Section Animations ── */
+
+/* Scroll-reveal: elements fade in + translate up */
+.si-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.si-animate.si-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Diptych images: scale down from 1.05 on reveal */
+.si-diptych-img {
+  transform: scale(1.05);
+  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.si-revealed .si-diptych-img {
+  transform: scale(1);
+}
+
+/* Diptych hover: subtle 1.02 scale */
+.si-diptych-container:hover .si-diptych-img {
+  transform: scale(1.02);
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* CTA text link with animated underline */
+.si-cta-underline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.si-cta-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #1a1a1a;
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.si-cta-underline:hover::after {
+  width: 100%;
+}
+
+.si-cta-underline:hover .si-arrow {
+  transform: translateX(4px);
+}
+
+.si-arrow {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

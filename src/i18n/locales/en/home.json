@@ -1,0 +1,284 @@
+{
+  "hero": {
+    "kicker": "ENVIRONMENTAL INTELLIGENCE",
+    "headline": "Modern Life. Intelligent Skin.",
+    "subhead": "Formulated for skin shaped by modern life, daily exposure, and changing climates.",
+    "cta": "Discover the Science"
+  },
+  "JoinGlowmiCircle": {
+    "title": "Join Glowmi Circle"
+  },
+  "about": {
+    "title": "About Glowmi",
+    "desc": "GLOWMI is a premium skincare brand committed to delivering world-class products that combine advanced science with nature. Crafted for every skin tone, our formulations harness clinically proven ingredients to inspire confidence and promote radiant, timeless beauty. From the heart of Saudi Arabia to the world, GLOWMI empowers you to glow with confidence."
+  },
+  "collection": {
+    "subtitle": "THE COLLECTION",
+    "title": "Unveiling Soon",
+    "desc": "Our carefully crafted collection of premium skincare essentials. Stay connected with us.",
+    "comingSoon": "Coming Soon",
+    "collectionList": {
+      "serum": {
+        "title": "Serum",
+        "description": "Brightening, barrier strengthening, hydration, texture improvement"
+      },
+      "sleepingMask": {
+        "title": "Sleeping Mask",
+        "description": "Deep hydration, overnight repair, Rejuvenating, glow restoration"
+      },
+      "lipOil": {
+        "title": "Lip Oil",
+        "description": "Brightening, barrier strengthening, hydration, texture improvement"
+      }
+    }
+  },
+  "understands": {
+    "eyebrow": "OUR APPROCH",
+    "title": "The Art of Radiance",
+    "desc": "Refined skincare designed for radiant, healthy-looking skin.",
+    "learnMore": "Learn More",
+    "cards": {
+      "scan": {
+        "index": "UNDERSTAND",
+        "title": "Discover Your Skin",
+        "subtitle": "Understand what your skin truly needs through a seamless guided experience."
+      },
+      "personalized": {
+        "index": "DEFEND",
+        "title": "Protect & Transform",
+        "subtitle": "Formulated to help defend skin against daily atmospheric factors while preserving natural moisture and glow."
+      },
+      "results": {
+        "index": "REVEAL",
+        "title": "Radiant Results",
+        "subtitle": "Science-backed formulas designed to leave skin visibly smoother, balanced, and luminous."
+      }
+    }
+  },
+  "products_showcase": {
+    "title": "Glowmi",
+    "heading": "Resilience Against the Elements",
+    "subheading": "Crafted with desert-resilient botanicals to comfort the skin, support lasting moisture, and restore a luminous, healthy-looking radiance.",
+    "eyebrow": "CLIMATE INTELLIGENCE"
+  },
+  "glowmiStates": {
+    "title": "Intelligent Ingredients. Visible Results.",
+    "desc": "Each Glowmi formula is powered by carefully selected ingredients, chosen for performance, safety, and skin harmony.",
+    "subtitle": "All ingredients are dermatologically tested and ethically sourced.",
+    "states": {
+      "niacinamide": {
+        "title": "Niacinamide",
+        "subtitle": "Refines texture and enhances radiance",
+        "desc": "A vitamin B3 derivative that minimizes pores and brightens skin tone."
+      },
+      "hyaluronic": {
+        "title": "Hyaluronic Complex",
+        "subtitle": "Deep hydration and skin comfort",
+        "desc": "Multi-weight molecules that hydrate at every skin level."
+      },
+      "peptide": {
+        "title": "Peptide Blend",
+        "subtitle": "Supports firmness and resilience",
+        "desc": "Advanced peptides that signal skin to produce more collagen."
+      },
+      "botanical": {
+        "title": "Botanical Extracts",
+        "subtitle": "Calm and balance the skin",
+        "desc": "Plant-derived actives that soothe and protect sensitive skin."
+      }
+    }
+  },
+  "visualsResultsHero": {
+    "eyebrow": "Signature Botanical",
+    "title": "Beauty from the Dragon’s Blood",
+    "description": "Sourced from the rare Dragon Blood tree, Glowmi harnesses the power of this precious natural extract to help soothe, protect, and support visibly healthier, more radiant skin.",
+    "imageAlt": "Dragon Blood tree extract with botanical leaves",
+    "overlay": {
+      "label": "Hero Extract",
+      "title": "Soothes. Protects. Glows.",
+      "description": "A treasured botanical chosen to soothe skin, support barrier strength, and reveal a timeless glow."
+    }
+  },
+  "transformation": {
+    "eyebrow": "EDITORIAL SCROLL — SKIN INTELLIGENCE",
+    "stages": {
+      "day0": {
+        "label": "Day 0",
+        "quote": "Comfort begins before radiance.",
+        "stat": "Baseline skin stress index: elevated"
+      },
+      "week1": {
+        "label": "Week 1",
+        "quote": "The barrier remembers how to heal.",
+        "stat": "TEWL reduction: -12%"
+      },
+      "month1": {
+        "label": "Month 1",
+        "quote": "Recovery becomes visible.",
+        "stat": "Ceramide density: ↑ 28%"
+      },
+      "month3": {
+        "label": "Month 3",
+        "quote": "Intelligent recovery, complete.",
+        "stat": "Skin resilience: optimal"
+      }
+    },
+    "clinicalNote": "Illustrative progression based on consumer perception after continuous ELARA use."
+  },
+  "skincareShowcase": {
+    "title": "Where Science Meets Skincare",
+    "headline": "Formulations of intelligence and purpose.",
+    "subtitle": "Skincare rituals shaped by science, intelligence, and intention.",
+    "discoverLink": "Discover the Science",
+    "skincareDetails": {
+      "aiPowered": {
+        "title": "Inspired by modern environments",
+        "description": "Skincare rituals designed for skin responding to dynamic daily environments."
+      },
+      "dermatologically": {
+        "title": "Your personalized skin rituals",
+        "description": "A refined experience designed around your skin’s unique rhythm."
+      },
+      "premium": {
+        "title": "The Glowmi Circle",
+        "description": "Exclusive access to elevated skincare experiences and rewards."
+      },
+      "modernScience": {
+        "title": "Carefully curated formulations",
+        "description": "Every formula is developed and tested before it earns the Glowmi name."
+      }
+    }
+  },
+  "brandStoryTeaser": {
+    "eyebrow": "THE EDITORIAL — CHAPTER I",
+    "title": "Born from Desert Resilience",
+    "body": "Inspired by the resilience of the desert, Glowmi was created for skin exposed to heat, dryness, and modern living. We unite advanced skin science with quiet luxury to support balance, strength, and timeless glow.",
+    "cta": "Read Chapter I: Our Origins",
+    "imageAlt": "Immersive abstract visual of Glowmi's signature botanical extract encased in golden laboratory glass"
+  },
+  "homeBottomCta": {
+    "eyebrow": "Skin Intelligence",
+    "title": "A Symphony of Dermal Harmony",
+    "desc": "Step into a serene space of self-discovery. Our intuitive Skin Intelligence gently maps your skin's hydration balance and environmental response, revealing a highly personalized ritual designed to preserve your natural, timeless glow.",
+    "cta_button_text": "BEGIN SKIN ANALYSIS"
+  },
+  "bestProducts": {
+    "title": "BESTSELLERS",
+    "subtitle": "Our most-loved formulas, proven by visible results.",
+    "shopNow": "SHOP NOW",
+    "products": {
+      "cleanser": {
+        "name": "Velvet Touch Cleanser",
+        "benefit": "Gentle daily cleanser that purifies and softens skin."
+      },
+      "lipOil": {
+        "name": "Radiant Satin Lip Oil",
+        "benefit": "Smoothing, natural shine and hydration for soft lips."
+      },
+      "serum": {
+        "name": "Celestial Glow Brightening Serum",
+        "benefit": "Brightening, barrier strengthening, and texture improvement."
+      },
+      "sleepingMask": {
+        "name": "Lunar Restore Sleeping Mask",
+        "benefit": "Deep hydration and overnight repair for a restored glow."
+      }
+    }
+  },
+  "contactUs": {
+    "title": "Contact Us",
+    "description": "If you have any questions, need assistance, or want to share feedback, we'd love to hear from you!",
+    "imageAlt": "Glowmi Celestial Glow Brightening Serum",
+    "email": "info@glowmi.net",
+    "phone": "3251358133"
+  },
+  "beMemberDialog": {
+    "title": "Join Glowmi Circle",
+    "subtitle": "Become an exclusive member of Glowmi's skincare community.",
+    "firstOffer": "The first 500 members will receive their first order complimentary.",
+    "benefits": "All members enjoy a lifetime 20% privilege by using their membership ID on every Glowmi protocol, along with early access to launches, exclusive rewards, and personalized skincare guidance.",
+    "cta": "Join the Circle"
+  },
+  "createAccountDialog": {
+    "title": "Your skin decoded",
+    "subtitle": "Complete your profile to unlock.",
+    "offer": "Join the Glowmi Circle and receive your first order complimentary",
+    "fields": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Name",
+      "email": "Email",
+      "emailPlaceholder": "Address",
+      "contactNumber": "Contact Number",
+      "contactNumberPlaceholder": "Contact number",
+      "skinType": "Skin Type",
+      "skinTypePlaceholder": "Select",
+      "skinTypeOptions": {
+        "normal": "Normal",
+        "dry": "Dry",
+        "oily": "Oily",
+        "combination": "Combination",
+        "sensitive": "Sensitive"
+      },
+      "birthday": "Birth Date",
+      "day": "Day",
+      "month": "Month",
+      "year": "Year",
+      "SelectDateLabelName": "Select Date",
+      "gender": "Gender",
+      "genderPlaceholder": "Select gender",
+      "genderOptions": {
+        "male": "Male",
+        "female": "Female",
+        "other": "Other"
+      },
+      "password": "Password",
+      "passwordPlaceholder": "Create password"
+    },
+    "validation": {
+      "fullNameMin": "Full name must be at least 2 characters",
+      "emailInvalid": "Invalid email address",
+      "contactNumberMin": "Contact number must be at least 10 digits",
+      "skinTypeRequired": "Please select a skin type",
+      "birthdayInvalid": "Date of birth must be in the past.",
+      "passwordMin": "Password must be at least 8 characters"
+    },
+    "cta": "Enter the Circle"
+  },
+  "welcomeDialog": {
+    "logoAlt": "Glowmi logo",
+    "title": "Welcome to the Glowmi Circle",
+    "messagePrimary": "Your profile has been successfully created.",
+    "messageSecondary": "You are now part of a community devoted to intelligent skincare, refined rituals, and timeless glow.",
+    "messageTertiary": "Your welcome privilege has been applied.",
+    "messageQuaternary": "We look forward to supporting your skin’s resilience — beautifully and intentionally.",
+    "tagline": "The Essence of Timeless Glow",
+    "thanks": "Thank you for joining us."
+  },
+  "verifyOtpDialog": {
+    "title": "Verify Your Account",
+    "subtitle": "Enter the 6-digit verification code sent to your email.",
+    "cta": "Verify Code",
+    "loading": "Verifying...",
+    "resend": "Resend Code",
+    "resendSuccess": "Verification code resent successfully!",
+    "validation": {
+      "otpRequired": "Please enter the 6-digit code."
+    }
+  },
+  "footer": {
+    "tagline": "The Essence of Timeless Glow",
+    "copyright": "Glowmi. All rights reserved. Coming Soon.",
+    "nav": {
+      "home": "Home",
+      "aboutUs": "About Us"
+    },
+    "legal": {
+      "privacyPolicy": "Privacy Policy",
+      "termsConditions": "Terms & Conditions"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "email": "Email"
+    }
+  }
+}

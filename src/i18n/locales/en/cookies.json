@@ -1,0 +1,27 @@
+{
+  "title": "Cookies Policy",
+  "intro": "At Glowmi, we believe in being clear and open about how we collect and use data related to you. In the spirit of transparency, this policy provides detailed information about how and when we use cookies on our platform. For queries regarding your data consent preferences, contact legal@glowmi.net.",
+  "sections": [
+    {
+      "title": "1. What Are Cookies",
+      "content": "Cookies are small text files sent by us to your computer or mobile device. They are unique to your account or your browser. Session-based cookies last only while your browser is open and are automatically deleted when you close your browser. Persistent cookies last until you or your browser delete them or until they expire."
+    },
+    {
+      "title": "2. How We Use Them",
+      "content": "We use cookies to analyze user activity, improve page loading times, and enhance your overall shopping experience. They help us remember your language settings, store your cart contents, and secure your session."
+    },
+    {
+      "title": "3. Managing Your Preferences",
+      "content": "You can manage your cookie preferences through your browser settings. Please note that disabling cookies may affect the functionality of some features on our site, including your saved routines and checkout cart processes.",
+      "list": [
+        "Browser settings allow you to reject all cookies or choose which ones to accept.",
+        "You can delete cookies that have already been placed at any time.",
+        "Disabling cookies may prevent you from fully utilizing our AI skin analysis services."
+      ]
+    },
+    {
+      "title": "4. Third-Party Analytics",
+      "content": "We may use third-party service providers, such as Google Analytics, to monitor and analyze the use of our service. These third parties collect information to help us optimize our content and products, and they operate under their own privacy policies. For opt-outs, write to legal@glowmi.net."
+    }
+  ]
+}

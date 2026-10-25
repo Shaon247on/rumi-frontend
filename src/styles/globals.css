@@ -1,0 +1,235 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import './shadcn-tailwind.css';
+@source '../../*.{js,ts,jsx,tsx,mdx}';
+
+@import './shadcn-ui.css';
+@import './custom.css';
+
+/* ── Arabic Typography: IBM Plex Sans Arabic (via next/font/local) ── */
+/* Font loaded and preloaded by next/font in layout.tsx             */
+/* NEVER apply letter-spacing to Arabic text — see :lang(ar) rules below */
+
+@theme {
+  --color-ivory: #faf8f4;
+  --color-charcoal: #1a1a1a;
+  --color-deep-green: #1a2e1a;
+  --color-dark-brown: #4a4641;
+  --color-gold: #9f8a6b;
+}
+
+@layer base {
+  :root {
+    --color-announcement-bg: #1c1c1a;
+    --color-ivory: #faf8f4;
+    --color-charcoal: #1a1a1a;
+    --color-deep-green: #1a2e1a;
+    --color-dark-brown: #4a4641;
+    --color-gold: #9f8a6b;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --tracking-wide: 0.12em;
+    --text-sm: 0.8125rem;
+    --text-base: 1rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+  }
+
+  /*
+   * Arabic font + typography rules.
+   * Both :lang(ar) and [data-locale="ar"] are targeted so the rule fires
+   * whether the browser uses the html[lang] attribute or the data attribute.
+   * Specificity is intentionally high so inline style overrides are NOT needed.
+   */
+  :lang(ar),
+  [data-locale='ar'] {
+    font-family: var(--font-ibm-plex-arabic), 'GE SS', 'DIN Next Arabic', sans-serif;
+    letter-spacing: 0 !important;
+  }
+
+  /* Headings: tighter line-height (Arabic script still needs more room than Latin) */
+  :lang(ar) h1,
+  :lang(ar) h2,
+  :lang(ar) h3,
+  :lang(ar) h4,
+  :lang(ar) h5,
+  :lang(ar) h6,
+  [data-locale='ar'] h1,
+  [data-locale='ar'] h2,
+  [data-locale='ar'] h3,
+  [data-locale='ar'] h4,
+  [data-locale='ar'] h5,
+  [data-locale='ar'] h6 {
+    line-height: 1.4;
+    letter-spacing: 0 !important;
+  }
+
+  /* Body text: minimum 1.7 line-height for Arabic script legibility */
+  :lang(ar) p,
+  :lang(ar) span,
+  :lang(ar) li,
+  [data-locale='ar'] p,
+  [data-locale='ar'] span,
+  [data-locale='ar'] li {
+    line-height: 1.7;
+    letter-spacing: 0 !important;
+  }
+
+  /*
+   * Safety net: zero out letter-spacing even when a Tailwind tracking-* class
+   * is present on an element within an Arabic locale context.
+   * This covers uppercase English label patterns copied to Arabic UI elements.
+   */
+  [data-locale='ar'] [class*='tracking-'] {
+    letter-spacing: 0 !important;
+  }
+
+  /*
+   * Arabic product name display typography.
+   *
+   * Arabic does NOT italicize — applying font-style:italic to Arabic script
+   * produces pseudo-obliqued glyphs that are typographically incorrect.
+   * Instead, hierarchy is created via weight (600) and size (slightly larger).
+   *
+   * IBM Plex Arabic 600 is available locally (ibm-plex-arabic-600-arabic.woff2)
+   * and provides a distinct display weight vs. the 400-weight body copy.
+   * This matches the visual weight of the EN italic Georgia treatment.
+   *
+   * DevTools verification target:
+   *   EN product name → computed font-family: Georgia, serif (italic treatment via span)
+   *   AR product name → computed font-family: IBM Plex Arabic (600w, loaded locally)
+   */
+  .ar-product-name {
+    font-family: var(--font-ibm-plex-arabic), 'GE SS Two', 'DIN Next Arabic', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0 !important;
+    line-height: 1.4;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-primary;
+  }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .navList-parent {
+    @apply absolute top-5 right-2 justify-around md:w-full;
+  }
+
+  /* auth components blocks  */
+  .auth-container {
+    @apply bg-card w-full max-w-md rounded-2xl border p-8 shadow-sm;
+  }
+  .auth-back-btn {
+    @apply mb-8 inline-flex size-10 items-center justify-center rounded-full bg-white shadow-2xl;
+  }
+  .auth-heading {
+    @apply text-4xl font-semibold text-[#000000];
+  }
+  .auth-subheading {
+    @apply mt-2 text-base text-[#3B3B3B];
+  }
+  .auth-action-btn {
+    @apply w-full py-6 text-[#FFFFFF] capitalize;
+  }
+
+  /* nav  */
+  .global-nav-link {
+    @apply hover:text-main-button text-main-primary-base_light text-xl transition-colors;
+  }
+
+  /* coming-soon page */
+  .coming-create-modal-input {
+    @apply text-primary placeholder:text-primary h-9.5 w-full rounded-full bg-white! px-5 py-2 text-sm focus:ring-2 focus:ring-black/20 focus:outline-none;
+  }
+
+  /* footers */
+  .footer-email-container {
+    @apply text-lg font-normal md:text-xl lg:text-xl;
+  }
+  .footer-email {
+    @apply text-lg font-normal transition-opacity hover:opacity-70 md:text-xl lg:text-xl;
+  }
+}
+
+/* ── Luxury Skincare Typography System ── */
+@utility text-hero {
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.15;
+  font-weight: 400;
+  [data-locale='ar'] & {
+    line-height: 1.3;
+  }
+}
+@utility text-h1 {
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.2;
+  font-weight: 400;
+  [data-locale='ar'] & {
+    line-height: 1.4;
+  }
+}
+@utility text-h2 {
+  font-size: clamp(22px, 3vw, 28px);
+  line-height: 1.3;
+  font-weight: 500;
+  [data-locale='ar'] & {
+    line-height: 1.5;
+  }
+}
+@utility text-h3 {
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 500;
+  [data-locale='ar'] & {
+    line-height: 1.6;
+  }
+}
+@utility text-body-large {
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 400;
+  [data-locale='ar'] & {
+    line-height: 1.95;
+  }
+}
+@utility text-body-base {
+  font-size: 15px;
+  line-height: 1.65;
+  font-weight: 400;
+  [data-locale='ar'] & {
+    line-height: 1.85;
+  }
+}
+@utility text-caption {
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 400;
+  [data-locale='ar'] & {
+    line-height: 1.7;
+  }
+}
+@utility text-eyebrow {
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  [data-locale='ar'] & {
+    line-height: 1.6;
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "Terms & Conditions",
+  "intro": "Welcome to Glowmi. Please read these Terms & Conditions carefully before using our website, AI skin analysis tool, or purchasing any of our high-performance skincare formulations. By accessing our services, you agree to be bound by these terms. For billing or account queries, please contact legal@glowmi.net.",
+  "sections": [
+    {
+      "title": "1. Acceptance of Terms",
+      "content": "By accessing or using any part of the Glowmi platform, you acknowledge that you have read, understood, and agreed to be bound by these Terms. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services."
+    },
+    {
+      "title": "2. Intellectual Property",
+      "content": "All content on this website, including but not limited to texts, graphics, logos, formulations, and AI-related proprietary technologies, is the exclusive intellectual property of Glowmi. You may not reproduce, duplicate, copy, sell, resell or exploit any portion of the service without express written permission."
+    },
+    {
+      "title": "3. User Conduct",
+      "content": "You agree not to use the platform for any unlawful purpose or to solicit others to perform or participate in any unlawful acts. Violation of any user conduct rules may result in immediate termination of your access to our services.",
+      "list": [
+        "No transmission of worms, viruses or any code of a destructive nature.",
+        "No harassment, abuse, insult, harm, defamation, or discrimination.",
+        "No uploading of false or misleading information."
+      ]
+    },
+    {
+      "title": "4. Limitation of Liability",
+      "content": "Glowmi shall not be liable for any direct, indirect, incidental, punitive, or consequential damages resulting from the use or the inability to use our skincare formulations or AI skin intelligence insights."
+    },
+    {
+      "title": "5. Contact Information",
+      "content": "Questions about the Terms & Conditions should be sent to us at:\nlegal@glowmi.net"
+    }
+  ]
+}

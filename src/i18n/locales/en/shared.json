@@ -1,0 +1,117 @@
+{
+  "nav": {
+    "button_text": "SIGN IN",
+    "searchLabel": "Search products",
+    "searchPlaceholder": "Search by product name or benefit",
+    "joinGlowmiCircle": "Join Glowmi Circle",
+    "skinQuiz": "Skin Quiz",
+    "profile": "Profile",
+    "signOut": "Sign Out",
+    "language": "Language",
+    "navItems": {
+      "home": "Home",
+      "products": "ELARA",
+      "analyzeSkin": "Skin Intelligence",
+      "aboutUs": "About Us",
+      "ourStory": "Our Story",
+      "contactUs": "Contact US",
+      "needHelp": "Need Help"
+    }
+  },
+  "announcements": {
+    "bornInSaudi": "Born in Saudi Arabia. Created for the World.",
+    "foundingMember": "Become a Founding Member of Glowmi Circle.",
+    "scienceTimeless": "Glowmi. Science Meets Timeless Beauty.",
+    "beautifulSkin": "Beautiful Skin Begins with Understanding.",
+    "earlyAccess": "Early Access for Glowmi Circle Members.",
+    "designedForSkin": "Designed for Skin. Powered by Science.",
+    "newEra": "Glowmi. A New Era of Luxury Skincare."
+  },
+  "checkoutItem": {
+    "productName": "Deep nourishing day serum",
+    "price": "$ 98.00 ( USD )",
+    "remove": "Remove"
+  },
+  "cartDrawer": {
+    "trigger": "Open cart",
+    "title": "Your cart",
+    "subtitle": "{count, plural, one {# item in your cart} other {# items in your cart}}",
+    "emptyTitle": "Your cart feels light",
+    "emptyDescription": "Add a few essentials to keep your routine ready in one place.",
+    "itemSubtotal": "Subtotal",
+    "totalLabel": "Total",
+    "viewCart": "View cart",
+    "fallbackProduct": "Skincare item",
+    "loginTitle": "Login required",
+    "loginDescription": "You need to sign in before you can view saved cart items and checkout details.",
+    "loginCardTitle": "Your cart is waiting",
+    "loginCardBody": "Sign in to see products, totals, and a smoother checkout experience.",
+    "loginButton": "Go to login"
+  },
+  "footer": {
+    "heading": "Science with Intelligence",
+    "cta": "Follow Us",
+    "brandStatement": "Born in Saudi Arabia.\nCreated for the World.\n\nLuxury skincare powered by science.",
+    "sections": {
+      "shop": {
+        "title": "SHOP",
+        "allProducts": "All Products",
+        "skincare": "Skincare",
+        "bestSellers": "Best Sellers",
+        "newArrivals": "New Arrivals",
+        "giftSets": "Gift Sets"
+      },
+      "skinIntelligence": {
+        "title": "SKIN INTELLIGENCE",
+        "analysis": "Skin Analysis",
+        "recommendations": "AI Recommendations",
+        "ingredients": "Ingredients Intelligence",
+        "journal": "Skin Journal"
+      },
+      "about": {
+        "title": "ABOUT",
+        "story": "Our Story",
+        "science": "Our Science",
+        "sustainability": "Sustainability",
+        "careers": "Careers"
+      },
+      "customerCare": {
+        "title": "CUSTOMER CARE",
+        "faqs": "FAQs",
+        "shipping": "Shipping & Delivery",
+        "returns": "Returns & Refunds",
+        "contact": "Contact Us"
+      },
+      "membership": {
+        "title": "JOIN GLOWMI CIRCLE",
+        "description": "Become a Founding Member.\n\nExclusive launches.\nPriority access.\nPersonal rewards.",
+        "descSentence": "Join our founding members and shape the future of intelligent skincare.",
+        "item1": "Exclusive product launches",
+        "item2": "Priority access & rewards",
+        "item3": "Personalised routines",
+        "placeholder": "Your email address",
+        "privacyNote": "Your privacy is always protected."
+      }
+    },
+    "location": "Riyadh, Saudi Arabia",
+    "sustainabilityBadge": "Proudly Born in Saudi Arabia",
+    "sustainabilityDesc": "Crafted with intelligence. Created for the world.",
+    "legal": {
+      "rights": "© 2026 Glowmi. All Rights Reserved.",
+      "privacy": "Privacy Policy",
+      "terms": "Terms & Conditions",
+      "cookies": "Cookies Policy",
+      "vat": "VAT Reg. 311394142100003",
+      "qualityCertified": "Saudi Made · Quality Certified"
+    }
+  },
+  "legalPage": {
+    "onThisPage": "On this page",
+    "backToTop": "Back to top",
+    "lastUpdated": "Last updated",
+    "related": "Related",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions",
+    "cookiesPolicy": "Cookies Policy"
+  }
+}

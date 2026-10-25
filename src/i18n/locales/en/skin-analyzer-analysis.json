@@ -1,0 +1,72 @@
+{
+  "header": {
+    "title": "Skin Intelligence",
+    "subtitle": "Share your skin concerns and receive AI-guided skincare recommendations designed to support your glow journey."
+  },
+  "form": {
+    "skinType": {
+      "label": "What's your skin type?",
+      "options": {
+        "oily": "Oily",
+        "dry": "Dry",
+        "combination": "Combination",
+        "normal": "Normal",
+        "sensitive": "Sensitive"
+      }
+    },
+    "age": {
+      "label": "What's your age?",
+      "placeholder": "Type your age here"
+    },
+    "concerns": {
+      "label": "What are your main skin concerns? (Select all that apply)",
+      "options": {
+        "acne": "Acne & Breakouts",
+        "darkSpots": "Dark Spots",
+        "fineLines": "Fine Lines & Wrinkles",
+        "dryness": "Dryness",
+        "oilySkin": "Oily Skin",
+        "redness": "Redness & Sensitivity",
+        "dullness": "Dullness",
+        "largePores": "Large Pores",
+        "others": "Others"
+      },
+      "othersPlaceholder": "Input others skin concern"
+    },
+    "additionalDetails": {
+      "label": "Additional Details (Optional)",
+      "placeholder": "Tell us more about your skincare goals, allergies, or any specific products you'd like to avoid..."
+    },
+    "uploadPhoto": {
+      "label": "Upload Photo (Optional)",
+      "clickToUpload": "Click to upload or drag and drop",
+      "fileTypes": "PNG, JPG up to 10MB"
+    },
+    "submitButton": "ANALYZE & GET RECOMMENDATIONS",
+    "validation": {
+      "skinTypeRequired": "Select your skin type.",
+      "ageRequired": "Enter your age.",
+      "ageInvalid": "Age must contain only numbers.",
+      "ageRange": "Age must be between 13 and 120.",
+      "concernsRequired": "Select at least one skin concern.",
+      "othersConcernRequired": "Please describe the other skin concern.",
+      "additionalDetailsMax": "Additional details must be 500 characters or less.",
+      "photoMaxOne": "Upload only one photo.",
+      "photoInvalid": "Photo must be a valid image file under 10 MB."
+    }
+  },
+  "features": {
+    "aiPowered": {
+      "title": "AI-Powered",
+      "subtitle": "Advanced algorithms analyze your unique skin needs"
+    },
+    "personalized": {
+      "title": "Personalized",
+      "subtitle": "Custom routines based on your specific concerns"
+    },
+    "expertBacked": {
+      "title": "Expert-Backed",
+      "subtitle": "Recommendations based on dermatological research"
+    }
+  }
+}

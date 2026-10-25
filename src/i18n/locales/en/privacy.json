@@ -1,0 +1,28 @@
+{
+  "title": "Privacy Policy",
+  "intro": "At Glowmi, we value your privacy and are committed to protecting your personal information and creating a secure, trusted experience across our platform.",
+  "sections": [
+    {
+      "title": "Information We Collect",
+      "content": "We may collect personal information such as your name, email address, shipping details, and purchase history to improve your experience and personalize our services."
+    },
+    {
+      "title": "How We Use Your Information",
+      "content": "Your information is used to:",
+      "list": [
+        "process orders and payments",
+        "personalize your shopping experience",
+        "improve our products and services",
+        "communicate updates, offers, and customer support"
+      ]
+    },
+    {
+      "title": "Data Protection",
+      "content": "Glowmi is committed to maintaining the confidentiality and security of your personal information through trusted technologies and secure systems."
+    },
+    {
+      "title": "Contact Us",
+      "content": "For privacy-related inquiries, please contact us at:\nsupport@glowmi.net"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sensitivity/redness dots pattern - represents skin concerns at Day 0 -->
+  <circle cx="16" cy="10" r="3" stroke="#8B6F5C" stroke-width="1.5" fill="none"/>
+  <circle cx="10" cy="18" r="2.5" stroke="#8B6F5C" stroke-width="1.5" fill="none"/>
+  <circle cx="22" cy="18" r="2.5" stroke="#8B6F5C" stroke-width="1.5" fill="none"/>
+  <circle cx="16" cy="24" r="2" stroke="#8B6F5C" stroke-width="1.5" fill="none"/>
+  <circle cx="16" cy="10" r="1" fill="#8B6F5C"/>
+  <circle cx="10" cy="18" r="0.8" fill="#8B6F5C"/>
+  <circle cx="22" cy="18" r="0.8" fill="#8B6F5C"/>
+</svg>

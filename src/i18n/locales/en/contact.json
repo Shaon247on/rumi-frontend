@@ -1,0 +1,86 @@
+{
+  "eyebrow": "CONTACT US",
+  "headline": "How can we help you?",
+  "supporting": "Every message is personally reviewed by our skincare specialists.",
+  "services": {
+    "title": "Contact Channels",
+    "subtitle": "Select a category below to get in touch with our team",
+    "productAdvice": {
+      "title": "Product Advice",
+      "desc": "Receive personal recommendations for the ideal skincare routine for your skin type.",
+      "cta": "Talk to an Advisor"
+    },
+    "orderSupport": {
+      "title": "Order Support",
+      "desc": "Inquire about shipping, deliveries, returns, or the status of your order.",
+      "cta": "Get Support"
+    },
+    "generalInquiry": {
+      "title": "General Inquiry",
+      "desc": "Reach out for business, partnerships, wholesale, or any general questions.",
+      "cta": "Contact Us"
+    }
+  },
+  "details": {
+    "title": "Contact Information",
+    "subtitle": "Direct channels to reach our Riyadh-based concierge team.",
+    "email": {
+      "label": "Email",
+      "value": "care@glowmi.net"
+    },
+    "phone": {
+      "label": "Phone / WhatsApp",
+      "value": "+966 50 000 0000"
+    },
+    "location": {
+      "label": "Location",
+      "value": "Olaya District, Riyadh, Saudi Arabia"
+    },
+    "hours": {
+      "label": "Business Hours",
+      "value": "Saturday – Thursday, 10:00 AM – 9:00 PM AST"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Answers to our most common inquiries.",
+    "q1": "Are GLOWMI recommendations a substitute for medical advice?",
+    "a1": "No. Glowmi AI and our advisors provide educational skincare guidance only. We do not diagnose, treat, or prescribe. For medical skin concerns, please consult a dermatologist.",
+    "q2": "Can I modify or cancel my order after placing it?",
+    "a2": "Orders are processed quickly to ensure fast delivery. Please contact our Order Support team immediately via WhatsApp or the contact form, and we will do our best to assist you.",
+    "q3": "Are the products suitable for sensitive skin?",
+    "a3": "Yes, our curated products are specifically selected for their clean, high-performance profiles, with many options formulated specifically to strengthen sensitive skin in the Gulf climate."
+  },
+  "form": {
+    "title": "Send a Message",
+    "subtitle": "Online Inquiry Form",
+    "reassurance": "We value your privacy. All inquiries are kept strictly confidential.",
+    "confidentiality": "Your details are secure. We never share your personal skin profile or information.",
+    "name": "Your Name",
+    "namePlaceholder": "Please share your full name",
+    "email": "Email Address",
+    "emailPlaceholder": "Enter your preferred email",
+    "phone": "Phone Number (Optional)",
+    "phonePlaceholder": "+966 5X XXX XXXX",
+    "category": "Reason for Inquiry",
+    "message": "Your Message",
+    "messagePlaceholder": "Tell us how we can help. Share details about your routine, skin type, or order...",
+    "categories": {
+      "product": "Product Advice",
+      "order": "Order Support",
+      "general": "General Inquiry"
+    },
+    "submit": "Send Message",
+    "submitting": "Sending Message...",
+    "errors": {
+      "nameRequired": "Kindly share your full name to proceed.",
+      "emailRequired": "Kindly provide your email address.",
+      "emailInvalid": "Kindly enter a valid email address.",
+      "messageRequired": "Please describe your inquiry so we can serve you best.",
+      "generic": "We experienced a temporary system delay. Please try again or reach out via WhatsApp."
+    },
+    "success": "Message Received",
+    "successDesc": "Your inquiry has been successfully sent. One of our skincare specialists will reply to you personally.",
+    "successCta": "Return to Homepage"
+  }
+}

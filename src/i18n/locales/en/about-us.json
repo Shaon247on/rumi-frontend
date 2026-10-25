@@ -1,0 +1,24 @@
+{
+  "hero": {
+    "eyebrow": "Our Legacy",
+    "titleLineOne": "Some things cannot be rushed.",
+    "titleLineTwo": "True radiance is cultivated over time.",
+    "imageAlt": "A woman standing on sand dunes at sunset"
+  },
+  "missionVision": {
+    "title": "Mission & Vision",
+    "mission": {
+      "title": "Mission",
+      "description": "At GLOWMI, we are committed to delivering premium skincare solutions that combine cutting-edge formulations, clinically proven ingredients, and sustainable innovation. We create world-class products that are safe, effective, and beautifully designed. Our mission is to inspire self-care, elevate everyday rituals into luxury experiences, and establish GLOWMI as a trusted global name in skincare."
+    },
+    "vision": {
+      "title": "Vision",
+      "description": "To redefine skincare luxury by blending advanced science, global expertise, and timeless elegance empowering confidence and radiant beauty in every individual, starting from Saudi Arabia to the world."
+    },
+    "imageAlt": "Woman with skincare products on face, smiling"
+  },
+  "brandStory": {
+    "title": "Brand story",
+    "description": "Born in Saudi Arabia, created for the world. GLOWMI stands as a guardian of glow a symbol of balance between science and soul, nature and innovation, care and strength. We craft high-performance skincare that protects and celebrates every complexion from sunlit deserts to misty coasts, from city light to quiet night. Our formulations are powered by clinically proven actives and guided by a deep respect for the skin's natural rhythm. GLOWMI was built for those who face the world with courage who carry warmth, grace, and resilience in every shade of their skin. We don't follow trends; we honor truth. We don't promise perfection; we promise confidence because beauty is not in how you look it's in how you glow through life. Our mission is simple: to redefine luxury skincare by blending science, sincerity, and timeless care. To inspire confidence in every person, in every corner of the world."
+  }
+}

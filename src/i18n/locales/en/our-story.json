@@ -1,0 +1,45 @@
+{
+  "hero": {
+    "eyebrow": "01 / PREFACE",
+    "tagline": "The Essence of Timeless Glow",
+    "subline": "Born beneath the Arabian sun. Perfected through science.",
+    "imageAlt": "Warm desert dunes under soft sunlight, luxury editorial view"
+  },
+  "legacy": {
+    "eyebrow": "02 / THE INCEPTION",
+    "heading": "An unspoken dialogue with the desert",
+    "body": "Inspired by the resilience of the desert, Glowmi believes skin holds its own intelligence — the ability to adapt, protect, and renew. Like life in the desert, skin thrives through balance, strength, and quiet resilience.",
+    "imageAlt": "Close-up macro texture of sand, editorial warm aesthetic"
+  },
+  "quote": {
+    "text": "Intelligent skincare for skin that lives, adapts, and glows.",
+    "author": "THE GLOWMI HOUSE"
+  },
+  "science": {
+    "eyebrow": "03 / MOLECULAR INTUITION",
+    "heading": "Science with Intelligence",
+    "body": "Glowmi unites advanced skin science with a deep respect for the skin's natural intelligence — combining clinically proven actives, adaptive hydration for changing environments, and formulations designed to honor the diversity and depth of every complexion.",
+    "imageAlt": "A single clear droplet of serum suspended in mid-air against a softly blurred golden-hour desert dunes background"
+  },
+  "ingredient": {
+    "eyebrow": "04 / METICULOUS ELEMENTS",
+    "heading": "Deep Botanical Sophistication",
+    "body": "Every ingredient is curated under microscopic scrutiny, seeking absolute synergy between active medical science and organic wisdom. No fillers, no compromises. Only active intelligence."
+  },
+  "founder": {
+    "eyebrow": "05 / THE FOUNDERS",
+    "heading": "Patience and Intention",
+    "body": "Glowmi began as a shared vision to create intelligent skincare that blends science, sincerity, and care. Every formula is developed with patience and intention, guided by the belief that true beauty is not perfection, but confidence.",
+    "names": "ShahRukh Ali, Noreen Ali",
+    "title": "Founders, Glowmi"
+  },
+  "philosophy": {
+    "eyebrow": "06 / THE CREED",
+    "heading": "The Core Philosophy",
+    "body": "At Glowmi, true luxury begins with understanding the skin. We create with restraint, intention, and intelligence — supporting the skin’s natural rhythm through refined formulations designed for balance, comfort, and timeless glow."
+  },
+  "closing": {
+    "tagline": "The Essence of Timeless Glow",
+    "subline": "A timeless expression of science, care, and luminous skin."
+  }
+}

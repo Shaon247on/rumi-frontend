@@ -1,0 +1,247 @@
+{
+  "eyebrow": "Science-Backed Luxury",
+  "title": "GLOWMI",
+  "description": "Clinically proven formulas engineered for lasting radiance.",
+  "cta": "Explore Collection",
+  "categories": {
+    "all": "ALL",
+    "cleansers": "Cleansers",
+    "serums": "Serums",
+    "moisturizers": "Moisturizers",
+    "lips": "Lips",
+    "face": "Face",
+    "treatments": "Treatments",
+    "sets": "Sets",
+    "new-arrivals": "New Arrivals",
+    "best-sellers": "Best Sellers"
+  },
+  "elara": {
+    "hero": {
+      "title": "ELARA",
+      "subtitle": "Regenerative Barrier Serum",
+      "tagline": "Designed for skin shaped by modern life.",
+      "cta": "Discover ELARA"
+    },
+    "heroClaims": [
+      "Hydrates",
+      "Supports the Skin Barrier",
+      "Soothes & Comforts",
+      "Revives Skin Radiance",
+      "Lightweight & Fast Absorbing",
+      "Antioxidant-Rich Formula"
+    ],
+    "detailedClaims": {
+      "question": "Efficacy & Benefits",
+      "headline": "Targeted Actions for Resilient Skin",
+      "items": [
+        "Provides long-lasting hydration",
+        "Strengthens the skin barrier",
+        "Reduces the appearance of redness",
+        "Improves skin comfort and balance",
+        "Smoothes the appearance of skin texture",
+        "Improves the appearance of uneven skin tone",
+        "Leaves skin looking healthier and more radiant",
+        "Shields skin from environmental pollution and daily stress"
+      ]
+    },
+    "why": {
+      "question": "Why ELARA",
+      "headline": "Modern environments challenge the skin barrier every day.",
+      "body": "ELARA was created to help skin recover.",
+      "stressors": [
+        { "title": "Pollution", "desc": "Particulate matter that dulls skin vitality." },
+        { "title": "Stress", "desc": "Elevated cortisol leading to micro-inflammation." },
+        { "title": "Climate", "desc": "Extreme temperature and humidity shifts." },
+        { "title": "Blue Light", "desc": "Continuous screen radiation and oxidative strain." },
+        { "title": "Daily Fatigue", "desc": "Disrupted cellular renewal cycles." }
+      ]
+    },
+    "philosophy": {
+      "question": "Ingredient Philosophy",
+      "headline": "8 Active Bio-Botanicals",
+      "body": "Rather than flooding skin with aggressive percentages, ELARA delivers 8 bio-compatible botanical extracts that communicate directly with skin cells to restore native barrier resilience.",
+      "ingredients": [
+        {
+          "name": "Dragon's Blood",
+          "desc": "Precious Amazonian tree resin chosen to soothe, protect, and fortify natural skin resilience."
+        },
+        {
+          "name": "Hyaluronic Acid",
+          "desc": "Multi-molecular hydration complex providing deep, sustained water retention."
+        },
+        {
+          "name": "Vitamin C (Ascorbyl Glucoside)",
+          "desc": "Stabilized antioxidant derivative that brightens tone and defends against daily stress."
+        },
+        {
+          "name": "Caffeine",
+          "desc": "Energizing botanical agent that revitalizes micro-circulation and calms puffiness."
+        },
+        {
+          "name": "Cherry Extract",
+          "desc": "Nutrient-dense super-berry bio-active rich in natural antioxidants and vitamins."
+        },
+        {
+          "name": "Red Clover Extract",
+          "desc": "Botanical balancing extract known to refine skin texture and soothe sensitivity."
+        },
+        {
+          "name": "Prickly Pear Extract",
+          "desc": "Desert-resilient botanical that deeply nourishes and locks in essential moisture."
+        },
+        {
+          "name": "Radish Root Ferment",
+          "desc": "Natural probiotic ferment peptide that preserves skin flora and formula purity."
+        }
+      ]
+    },
+    "transformation": {
+      "question": "Skin Intelligence",
+      "headline": "Visualizing Transformation Over Time",
+      "timeline": [
+        {
+          "step": "Day 0",
+          "title": "Baseline",
+          "desc": "Surface dehydration and micro-stress fatigue."
+        },
+        {
+          "step": "Week 1",
+          "title": "Soothing Comfort",
+          "desc": "Immediate calm and rapid hydration replenishment."
+        },
+        {
+          "step": "Month 1",
+          "title": "Barrier Renewal",
+          "desc": "Reinforced intercellular lipids and noticeable bounce."
+        },
+        {
+          "step": "Month 3",
+          "title": "Peak Resilience",
+          "desc": "Enduring luminosity and restored elastic strength."
+        }
+      ]
+    },
+    "howItFeels": {
+      "question": "How It Feels",
+      "headline": "Sensory Balance",
+      "items": [
+        {
+          "title": "Comfort",
+          "desc": "Instantly calms irritation with a weightless, soothing veil."
+        },
+        {
+          "title": "Hydration",
+          "desc": "Deep, sustained moisture infusion that lasts all day."
+        },
+        {
+          "title": "Radiance",
+          "desc": "Unlocks a natural, inner luminosity without excess shine."
+        }
+      ]
+    },
+    "texture": {
+      "question": "Texture",
+      "headline": "Fluidity Meets Substance",
+      "body": "A velvet-smooth, fast-absorbing elixir that melts into skin upon contact, leaving zero heavy residue."
+    },
+    "specs": {
+      "question": "Product Specifications",
+      "headline": "Formulation Standards",
+      "labels": {
+        "productType": "Product Type",
+        "texture": "Texture",
+        "skinType": "Skin Type",
+        "size": "Size",
+        "use": "Use",
+        "absorption": "Absorption",
+        "finish": "Finish"
+      },
+      "values": {
+        "productType": "Facial Serum",
+        "texture": "Lightweight gel serum",
+        "skinType": "All Skin Types",
+        "size": "30 ml",
+        "use": "Morning & Evening",
+        "absorption": "Fast Absorbing",
+        "finish": "Natural Healthy Glow"
+      },
+      "suitableForQuestion": "Compatibility Matrix",
+      "suitableForHeadline": "Suitable For",
+      "suitableForItems": [
+        "Sensitive Skin",
+        "Dry Skin",
+        "Combination Skin",
+        "Normal Skin",
+        "Dehydrated Skin",
+        "Dull Skin",
+        "Post-Acne Marks"
+      ]
+    },
+    "clinical": {
+      "question": "Clinical Philosophy",
+      "headline": "Measured Resilience",
+      "stats": [
+        { "value": "95%", "label": "Skin feels more comfortable*" },
+        { "value": "91%", "label": "Healthier-looking glow*" },
+        { "value": "89%", "label": "Barrier appears stronger*" }
+      ],
+      "disclaimer": "*Based on a 28-day consumer perception evaluation study of 120 participants."
+    },
+    "modernSkin": {
+      "question": "Architecture",
+      "headline": "Designed Around Modern Skin",
+      "body": "Crafted in response to the fast-paced demands of contemporary life, engineered to shield, replenish, and empower your skin."
+    },
+    "ritual": {
+      "question": "Daily Ritual",
+      "headline": "Harmonized Application",
+      "morning": {
+        "title": "Morning Ritual",
+        "steps": [
+          { "action": "Apply", "detail": "2–3 drops onto clean skin" },
+          { "action": "Absorb", "detail": "Press gently into face & neck" },
+          { "action": "Protect", "detail": "Follow with daily sun shield" }
+        ]
+      },
+      "night": {
+        "title": "Night Ritual",
+        "steps": [
+          { "action": "Repair", "detail": "Smooth over cleansed skin" },
+          { "action": "Recover", "detail": "Allow active lipids to penetrate" },
+          { "action": "Wake Renewed", "detail": "Awaken to replenished vitality" }
+        ]
+      }
+    },
+    "faq": {
+      "question": "Questions & Answers",
+      "headline": "Understanding ELARA",
+      "items": [
+        {
+          "q": "How often should I use ELARA Regenerative Barrier Serum?",
+          "a": "For optimal results, apply 2 to 3 drops daily in both your morning and evening rituals after cleansing."
+        },
+        {
+          "q": "Is ELARA suitable for sensitive or climate-stressed skin?",
+          "a": "Yes. ELARA is explicitly formulated for skin exposed to heat, air conditioning, and urban stressors, tested for optimal skin compatibility."
+        },
+        {
+          "q": "Can ELARA be layered with other skincare products?",
+          "a": "Absolutely. Its lightweight fluid texture absorbs rapidly, making it ideal under moisturizers, sunscreen, or makeup."
+        },
+        {
+          "q": "What makes ELARA different from conventional serums?",
+          "a": "ELARA focuses on cellular harmony rather than high-percentage harsh actives, repairing the barrier while boosting natural resilience."
+        }
+      ]
+    },
+    "purchase": {
+      "title": "ELARA",
+      "volume": "30 ml",
+      "price": "SAR 345",
+      "tagline": "Regenerative Barrier Serum",
+      "quantityLabel": "Quantity",
+      "addToBag": "ADD TO BAG",
+      "addedToBag": "ADDED TO BAG"
+    }
+  }
+}

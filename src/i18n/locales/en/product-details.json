@@ -1,0 +1,43 @@
+{
+  "productName": "Deep nourishing day serum",
+  "subtitle": "Daily Brightening & Barrier Repair Serum",
+  "price": "$ 98.00 ( USD )",
+  "oldPrice": "$112.00",
+  "volume": "30ml",
+  "addToCart": "Add to Cart",
+  "updateCart": "Update Cart",
+  "quantity": "Quantity",
+  "description": {
+    "title": "Description",
+    "paragraph1": "Deep Nourishing Day Serum is a lightweight yet powerful daily serum designed to deeply hydrate, restore, and protect your skin throughout the day. Formulated with skin-loving botanical and nourishing actives, it absorbs quickly to deliver long-lasting moisture without feeling greasy or heavy.",
+    "paragraph2": "This serum helps strengthen the skin's moisture barrier, improve texture, and leave your skin feeling soft, smooth, and refreshed from morning to night. Perfect for daily use and suitable for all skin types."
+  },
+  "skinType": {
+    "title": "Skin Type",
+    "value": "All skin types, including sensitive"
+  },
+  "keyIngredients": {
+    "title": "Key Ingredients",
+    "value": "Niacinamide, Tranexamic Acid, Alpha Arbutin, Prickly Pear Extract, Licorice Root Extract, Beta-Glucan, Hyaluronic Acid"
+  },
+  "keyBenefits": {
+    "title": "Key Benefits",
+    "value": "Brightening, barrier strengthening, hydration, texture improvement"
+  },
+  "howToUse": {
+    "title": "How to Use",
+    "value": "Apply 1-2 pumps to clean, dry skin every morning. Gently massage until fully absorbed. Follow with moisturizer and sunscreen for best results."
+  },
+  "relatedProducts": "Related Product",
+  "viewDetails": "View Details",
+  "loading": "Loading product details",
+  "retry": "Try Again",
+  "error": {
+    "title": "Unable to load product",
+    "description": "Please try again in a moment."
+  },
+  "empty": {
+    "title": "Product not found",
+    "description": "The requested product is unavailable."
+  }
+}
