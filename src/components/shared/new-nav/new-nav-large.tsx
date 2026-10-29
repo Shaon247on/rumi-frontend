@@ -18,7 +18,7 @@ import { getImageUrl } from '@/lib/get-image-url'
 import { cn } from '@/lib/utils'
 import { useAuthStore } from '@/store/auth.store'
 import { useMembershipModalStore } from '@/store/membership-modal.store'
-import { Globe, LogOut, Search, User, X } from 'lucide-react'
+import { Languages, LogOut, Search, User, X } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
@@ -102,7 +102,7 @@ function LuxuryLangToggle() {
         className="inline-flex cursor-pointer items-center gap-1.5 text-[#3a3a3a] transition-colors hover:text-[#1a2e1a] focus:outline-none"
         aria-label="Change language"
       >
-        <Globe strokeWidth={1.5} style={{ width: 14, height: 14 }} />
+        <Languages strokeWidth={1.5} style={{ width: 14, height: 14 }} />
         <span
           style={{
             fontSize: 9.5,

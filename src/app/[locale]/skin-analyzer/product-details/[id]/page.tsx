@@ -1,28 +1,11 @@
-'use client'
+import { redirect } from '@/i18n/navigation'
 
-import { useProduct } from '@/api/api-hooks/product.api-hook'
-import { useParams } from 'next/navigation'
-import { RelatedProductsFromProductDetails } from './related-products'
-import SingleProductDetails from './single-product-details'
-
-const ProductDetailsPage = () => {
-  const params = useParams<{ id?: string | string[] }>()
-
-  const rawProductId = params?.id
-  const productId = Array.isArray(rawProductId) ? rawProductId[0] : rawProductId
-  const normalizedProductId = productId?.trim() || undefined
-
-  const productAction = useProduct(normalizedProductId)
-
-  return (
-    <>
-      <SingleProductDetails
-        normalizedProductId={normalizedProductId}
-        productAction={productAction}
-      />
-      <RelatedProductsFromProductDetails relatedProducts={productAction.data?.related_products} />
-    </>
-  )
+// Product pages now live at /products/[id]; keep old links working.
+export default async function LegacyProductDetailsPage({
+  params,
+}: {
+  params: Promise<{ id: string; locale: string }>
+}) {
+  const { id, locale } = await params
+  redirect({ href: `/products/${id}`, locale })
 }
-
-export default ProductDetailsPage

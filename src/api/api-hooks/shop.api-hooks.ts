@@ -107,7 +107,8 @@ export const useInitiateCheckout = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: SHOP_KEYS.cart() })
       queryClient.invalidateQueries({ queryKey: SHOP_KEYS.checkout() })
-      toast.success('Checkout initiated successfully')
+      queryClient.invalidateQueries({ queryKey: ['orders'] })
+      queryClient.invalidateQueries({ queryKey: ['products'] })
     },
 
     onError: (error: AxiosError) => {
@@ -124,6 +125,7 @@ export const useGenerateRoutine = () => {
 
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: SHOP_KEYS.routine() })
+      queryClient.invalidateQueries({ queryKey: ['ai-routine'] })
     },
 
     onError: (error: AxiosError) => {
@@ -137,6 +139,10 @@ export const useChatHistory = (enabled = true) => {
     queryKey: SHOP_KEYS.chatHistory(),
     queryFn: () => shopApi.getChatHistory(),
     enabled,
+    // Loaded once per visit; new messages arrive over the socket
+    staleTime: Infinity,
+    refetchOnMount: 'always',
+    refetchOnWindowFocus: false,
     select: (response) => response.data.data,
   })
 }

@@ -114,7 +114,7 @@ export const HomeBottomCta = () => {
           {/* Call to Action Pill Button */}
           <div className="transform transition-transform duration-300 hover:scale-102">
             <Link
-              href={isAR ? '/ar/skin-analyzer' : '/en/skin-analyzer'}
+              href={isAR ? '/ar/skin-analyzer/skin-intelligence' : '/en/skin-analyzer/skin-intelligence'}
               className={cn(
                 'border-ivory bg-ivory text-deep-green hover:border-gold/70 hover:text-deep-green inline-flex items-center justify-center rounded-none border px-12 py-4 font-sans text-xs font-semibold shadow-xl transition-all duration-500 outline-none hover:bg-[#F3EFEA] hover:shadow-[0_0_30px_rgba(250,248,244,0.3)] focus-visible:ring-2 focus-visible:ring-white',
                 isAR ? '' : 'tracking-[0.25em] uppercase'

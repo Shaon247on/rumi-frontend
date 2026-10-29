@@ -82,6 +82,7 @@ export interface GenerateRoutineRequestData {
   additional_details?: string
   concerns: string[]
   photo?: File
+  language?: string
 }
 
 export interface GenerateRoutineRecommendation {
@@ -120,6 +121,7 @@ const createGenerateRoutineFormData = (data: GenerateRoutineRequestData) => {
   appendFormDataValue(formData, 'additional_details', data.additional_details)
   appendFormDataValues(formData, 'concerns', data.concerns)
   appendFormDataValue(formData, 'photo', data.photo)
+  appendFormDataValue(formData, 'language', data.language)
 
   return formData
 }

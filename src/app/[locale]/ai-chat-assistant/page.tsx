@@ -25,11 +25,19 @@ const AiChatAssistant = () => {
   })
 
   return (
-    <div className="bg-background flex h-dvh flex-col overflow-hidden">
+    <div className="flex h-dvh flex-col overflow-hidden bg-ivory">
       <CommonNav />
 
+      <header className="shrink-0 border-b border-[#E6DFD5] px-4 py-5 text-center md:py-6">
+        <p className="text-[11px] tracking-[0.3em] text-[#8C8275] uppercase">{t('header.eyebrow')}</p>
+        <h1 className="mt-1 font-serif text-2xl font-light text-[#1C1C1A] md:text-3xl">
+          {t('header.title')}
+        </h1>
+        <p className="mt-1 text-xs text-[#5C564E] md:text-sm">{t('header.subtitle')}</p>
+      </header>
+
       <main className="flex min-h-0 flex-1 flex-col overflow-hidden">
-        <div className="flex-1 overflow-y-auto px-6 lg:px-40">
+        <div className="flex-1 overflow-y-auto px-4 md:px-6">
           <AiChatContent
             connectionError={connectionError}
             connectionState={connectionState}
@@ -39,7 +47,7 @@ const AiChatAssistant = () => {
           />
         </div>
 
-        <div className="bg-background shrink-0 border-t border-black/5 px-6 lg:px-40">
+        <div className="shrink-0 border-t border-[#E6DFD5] bg-ivory px-4 md:px-6">
           <AiChatBox
             connectionError={connectionError}
             connectionState={connectionState}

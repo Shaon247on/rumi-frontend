@@ -1,10 +1,14 @@
 'use client'
 
-import { Package2, Trash2 } from 'lucide-react'
+import { Minus, Plus, Trash2 } from 'lucide-react'
 
-import { useRemoveCartItem } from '@/api/api-hooks/shop.api-hooks'
+import { useRemoveCartItem, useUpdateCartItem } from '@/api/api-hooks/shop.api-hooks'
 import { CartItem } from '@/api/query-list/shop.query'
-import { useTranslations } from 'next-intl'
+import productFallbackImage from '@/assets/image/no-image-placeholder.svg'
+import { Link } from '@/i18n/navigation'
+import { formatSAR } from '@/lib/price'
+import { useLocale, useTranslations } from 'next-intl'
+import Image from 'next/image'
 import React from 'react'
 
 interface Props extends React.ComponentProps<'div'> {
@@ -14,44 +18,84 @@ interface Props extends React.ComponentProps<'div'> {
 export const CartsItems = ({ item }: Props) => {
   const t = useTranslations('shared.cartDrawer')
   const checkoutT = useTranslations('shared.checkoutItem')
-  const { mutateAsync, isPending } = useRemoveCartItem()
-  const isDisabled = isPending || !item.id
+  const locale = useLocale()
+  const { mutateAsync: removeItem, isPending: isRemoving } = useRemoveCartItem()
+  const { mutateAsync: updateItem, isPending: isUpdating } = useUpdateCartItem()
+  const quantity = item.quantity ?? 1
+  const stock = item.product?.stock
+  const isBusy = isRemoving || isUpdating || !item.id
+  const productId = item.product?.id ?? item.product_id
+
+  const changeQuantity = (next: number) => {
+    if (!item.id || next < 1) return
+    void updateItem({ itemId: item.id, data: { quantity: next } }).catch(() => undefined)
+  }
 
   return (
-    <article className="group flex items-start gap-3 rounded-2xl border border-[#e5e0d9] bg-white px-3 py-3 shadow-[0_8px_30px_rgba(26,46,26,0.04)] transition-transform duration-200 hover:-translate-y-0.5">
-      <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-[#1a2e1a] via-[#2e4730] to-[#a7b399] text-white shadow-sm">
-        <Package2 className="size-5" />
-      </div>
+    <article className="flex items-start gap-3 rounded-2xl border border-[#e5e0d9] bg-white p-3">
+      <Link
+        href={`/products/${productId}`}
+        className="relative size-16 shrink-0 overflow-hidden rounded-xl bg-ivory"
+      >
+        <Image
+          src={item.product?.images?.[0]?.image || productFallbackImage}
+          alt={item.product?.title || t('fallbackProduct')}
+          fill
+          sizes="64px"
+          className="object-contain p-1.5"
+        />
+      </Link>
 
       <div className="min-w-0 flex-1">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="line-clamp-2 text-sm leading-5 font-medium text-[#243224]">
+          <Link
+            href={`/products/${productId}`}
+            className="line-clamp-2 text-sm leading-5 font-medium text-charcoal hover:underline"
+          >
             {item.product?.title || t('fallbackProduct')}
-          </h3>
-          <span className="shrink-0 rounded-full bg-[#f3efe9] px-2 py-1 text-[11px] font-medium text-[#546057]">
-            x{item.quantity ?? 1}
+          </Link>
+          <span className="shrink-0 text-sm font-medium text-charcoal">
+            {formatSAR(item.subtotal ?? 0, locale)}
           </span>
         </div>
 
-        <div className="mt-2 flex items-center justify-between gap-3 text-xs text-[#6b6f69]">
-          <span>{t('itemSubtotal')}</span>
-          <span className="font-medium text-[#1a2e1a]">{item.subtotal || '0.00'}</span>
+        <div className="mt-3 flex items-center justify-between gap-3">
+          <div className="inline-flex items-center rounded-full border border-[#e5dfd5] bg-ivory">
+            <button
+              type="button"
+              aria-label="-"
+              disabled={isBusy || quantity <= 1}
+              onClick={() => changeQuantity(quantity - 1)}
+              className="flex size-7 items-center justify-center text-[#68706a] disabled:opacity-40"
+            >
+              <Minus className="size-3" />
+            </button>
+            <span className="min-w-6 text-center text-xs font-medium text-charcoal">{quantity}</span>
+            <button
+              type="button"
+              aria-label="+"
+              disabled={isBusy || (stock !== undefined && quantity >= stock)}
+              onClick={() => changeQuantity(quantity + 1)}
+              className="flex size-7 items-center justify-center text-[#68706a] disabled:opacity-40"
+            >
+              <Plus className="size-3" />
+            </button>
+          </div>
+
+          <button
+            type="button"
+            disabled={isBusy}
+            aria-label={checkoutT('remove')}
+            className="inline-flex items-center gap-1 text-[11px] font-medium text-[#68706a] transition-colors hover:text-charcoal disabled:cursor-not-allowed disabled:opacity-50"
+            onClick={() => {
+              if (!item.id) return
+              void removeItem(item.id).catch(() => undefined)
+            }}
+          >
+            <Trash2 className="size-3.5" />
+            <span>{checkoutT('remove')}</span>
+          </button>
         </div>
-
-        <button
-          type="button"
-          disabled={isDisabled}
-          aria-label={checkoutT('remove')}
-          className="mt-3 inline-flex items-center gap-1 rounded-full border border-[#e5dfd5] bg-[#faf8f4] px-2.5 py-1 text-[11px] font-medium text-[#68706a] transition-colors hover:bg-[#f2ede4] disabled:cursor-not-allowed disabled:opacity-50"
-          onClick={() => {
-            if (!item.id) return
-
-            void mutateAsync(item.id)
-          }}
-        >
-          <Trash2 className="size-3.5" />
-          <span>{checkoutT('remove')}</span>
-        </button>
       </div>
     </article>
   )

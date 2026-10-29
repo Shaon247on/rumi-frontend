@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/sheet'
 import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
+import { formatSAR } from '@/lib/price'
 import { useAuthStore } from '@/store/auth.store'
 import { ArrowRight, LockKeyhole, ShoppingBag } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
@@ -28,8 +29,8 @@ export const ShowCardList = () => {
   const isAuthenticated = Boolean(user && accessToken)
   const { data: cardList } = useCart(isAuthenticated)
   const items = cardList?.items ?? []
-  const totalPrice = cardList?.total_price || '0.00'
-  const itemCount = items.length
+  const totalPrice = formatSAR(cardList?.total_price ?? 0, locale)
+  const itemCount = items.reduce((total, item) => total + (item.quantity ?? 1), 0)
 
   const triggerCount = isAuthenticated && itemCount > 0 ? String(itemCount) : undefined
 

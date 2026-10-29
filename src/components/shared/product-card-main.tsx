@@ -1,7 +1,8 @@
 import type { Product } from '@/api/query-list/product.query'
 import notImage from '@/assets/image/no-image-placeholder.svg'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
+import { formatSAR, getProductPricing } from '@/lib/price'
 
 interface Props extends React.ComponentProps<'div'> {
   product: Product
@@ -15,10 +16,9 @@ export const ProductCard = ({ product, viewDetailsLabel }: Props) => {
   const benefits = product.key_benefits?.trim() || null
   const skinType = product.skin_type?.trim() || null
   const size = product.size?.trim() || null
-  const price = formatCurrency(product.price)
-  const discount = getDiscountPrice(product.price, product.discount)
-  const hasDiscount = discount !== null
-  const displayPrice = hasDiscount ? discount : price
+  const { basePrice, finalPrice, hasDiscount } = getProductPricing(product)
+  const price = basePrice > 0 ? formatSAR(basePrice) : null
+  const displayPrice = formatSAR(finalPrice)
 
   return (
     <div className="group flex h-full flex-col">
@@ -74,38 +74,13 @@ export const ProductCard = ({ product, viewDetailsLabel }: Props) => {
 
       {/* View Details Button */}
       <Link
-        href={`/skin-analyzer/product-details/${product.id}`}
+        href={`/products/${product.id}`}
         className="mt-5 w-full rounded-xl border border-[#1a2e1a] bg-transparent py-3 text-center text-sm font-medium text-[#1a2e1a] transition-colors hover:bg-[#1a2e1a] hover:text-white"
       >
         {viewDetailsLabel}
       </Link>
     </div>
   )
-}
-
-const formatCurrency = (value?: string | null) => {
-  const amount = Number(value)
-
-  if (!Number.isFinite(amount) || amount <= 0) {
-    return null
-  }
-
-  return `SAR ${amount.toFixed(2)}`
-}
-
-const getDiscountPrice = (price?: string | null, discount?: string | null) => {
-  const parsedPrice = Number(price)
-  const parsedDiscount = Number(discount)
-
-  if (!Number.isFinite(parsedPrice) || !Number.isFinite(parsedDiscount) || parsedDiscount <= 0) {
-    return null
-  }
-
-  if (parsedDiscount >= parsedPrice) {
-    return null
-  }
-
-  return `SAR ${parsedDiscount.toFixed(2)}`
 }
 
 const getProductImageAlt = (product: Product) => {

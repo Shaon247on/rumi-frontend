@@ -1,6 +1,10 @@
-import { normalizeChatMessage, normalizeChatMessageList } from './ai-chat-socket-message'
+import {
+  normalizeChatMessage,
+  normalizeChatMessageList,
+  normalizeProductList,
+} from './ai-chat-socket-message'
 import { isRecord, toStringValue } from './ai-chat-socket-guards'
-import type { ChatMessage } from './ai-chat-socket.types'
+import type { ChatMessage, ChatProductRecommendation } from './ai-chat-socket.types'
 
 export const readSocketText = async (data: MessageEvent['data']) => {
   if (typeof data === 'string') {
@@ -37,9 +41,25 @@ type ParsedSocketPayload =
       error?: string
       mode: 'error'
     }
+  | {
+      // End of a streamed reply: the cleaned full text plus product cards
+      content: string
+      mode: 'final'
+      products: ChatProductRecommendation[]
+      suggestAnalysis: boolean
+    }
   | null
 
 export const parseSocketPayload = (payload: unknown): ParsedSocketPayload => {
+  if (isRecord(payload) && toStringValue(payload.type).toLowerCase() === 'final') {
+    return {
+      content: typeof payload.response === 'string' ? payload.response : '',
+      mode: 'final',
+      products: normalizeProductList(payload.products),
+      suggestAnalysis: payload.triggers_routine === true,
+    }
+  }
+
   if (Array.isArray(payload)) {
     return {
       mode: 'replace',

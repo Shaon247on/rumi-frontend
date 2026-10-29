@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import type { ReactNode } from 'react'
 
+import { useConcernLabel } from './use-concern-label'
 import type { RoutineHistorySummary, RoutineStep } from './your-routines-contents'
 
 type RoutineCardProps = {
@@ -18,8 +19,16 @@ const getStepSubtitle = (step: RoutineStep) => {
   return parts.join(' • ')
 }
 
-const RoutineStepRow = ({ step, index }: { index: number; step: RoutineStep }) => {
-  const href = step.productUrl || '/skin-analyzer'
+const RoutineStepRow = ({
+  step,
+  index,
+  t,
+}: {
+  index: number
+  step: RoutineStep
+  t: ReturnType<typeof useTranslations>
+}) => {
+  const href = step.productUrl || '/products'
   const imageAlt = step.productName || step.step || 'Routine product'
 
   return (
@@ -29,15 +38,21 @@ const RoutineStepRow = ({ step, index }: { index: number; step: RoutineStep }) =
       </div>
       <div className="flex-1">
         <h4 className="text-main-button text-lg font-bold">{getStepLabel(step)}</h4>
+        {step.step && step.productName ? (
+          <p className="text-main-button text-sm font-medium">{step.productName}</p>
+        ) : null}
         {getStepSubtitle(step) && (
           <p className="text-main-button/60 text-sm">{getStepSubtitle(step)}</p>
         )}
         {step.rationale && <p className="text-main-button/80 mt-1 text-sm">{step.rationale}</p>}
         {step.howToUse && (
           <p className="text-main-button/70 mt-1 text-sm">
-            <span className="font-semibold">How to use:</span> {step.howToUse}
+            <span className="font-semibold">{t('routines.howToUse')}</span> {step.howToUse}
           </p>
         )}
+        {step.medicalDisclaimer ? (
+          <p className="mt-1 text-xs text-[#8C8275] italic">{t('routines.disclaimer')}</p>
+        ) : null}
       </div>
       <div className="relative shrink-0">
         {step.imageUrl ? (
@@ -55,7 +70,7 @@ const RoutineStepRow = ({ step, index }: { index: number; step: RoutineStep }) =
         )}
         {step.price !== undefined && (
           <span className="absolute -bottom-2 left-1/2 w-full -translate-x-1/2 rounded-b bg-black/70 px-2 py-0.5 text-center text-xs text-white">
-            {typeof step.price === 'number' ? `$${step.price.toFixed(2)}` : step.price}
+            {typeof step.price === 'number' ? `SAR ${step.price.toFixed(2)}` : step.price}
           </span>
         )}
       </div>
@@ -69,8 +84,10 @@ const RoutineSection = ({
   subtitle,
   steps,
   emptyMessage,
+  t,
 }: {
   emptyMessage: string
+  t: ReturnType<typeof useTranslations>
   icon: ReactNode
   steps: RoutineStep[]
   subtitle?: string
@@ -93,6 +110,7 @@ const RoutineSection = ({
               key={`${title}-${step.productName ?? step.step ?? index}`}
               index={index}
               step={step}
+              t={t}
             />
           ))}
         </div>
@@ -104,6 +122,8 @@ const RoutineSection = ({
 }
 
 export const RoutineCard = ({ routine, t }: RoutineCardProps) => {
+  const getConcernLabel = useConcernLabel()
+
   return (
     <div className="bg-brand-shade-10 rounded-2xl p-6">
       <div className="mb-5 flex items-start justify-between gap-4">
@@ -127,7 +147,7 @@ export const RoutineCard = ({ routine, t }: RoutineCardProps) => {
               key={`${routine.id}-${concern}`}
               className="bg-main-button/10 text-main-button rounded-full px-3 py-1 text-xs"
             >
-              {concern}
+              {getConcernLabel(concern)}
             </span>
           ))}
         </div>
@@ -140,6 +160,7 @@ export const RoutineCard = ({ routine, t }: RoutineCardProps) => {
           subtitle={t('routines.morning.subtitle')}
           steps={routine.morningRoutine}
           emptyMessage="No morning routine steps available."
+          t={t}
         />
 
         <div className="border-main-button/10 border-t" />
@@ -150,6 +171,7 @@ export const RoutineCard = ({ routine, t }: RoutineCardProps) => {
           subtitle={t('routines.evening.subtitle')}
           steps={routine.eveningRoutine}
           emptyMessage="No evening routine steps available."
+          t={t}
         />
       </div>
     </div>

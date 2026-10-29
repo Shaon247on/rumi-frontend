@@ -4,10 +4,12 @@ import { useInitiateCheckout } from '@/api/api-hooks/shop.api-hooks'
 import type { CheckoutInitiateRequestData, CheckoutPaymentBrand } from '@/api/query-list/shop.query'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import { useRouter } from '@/i18n/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
 import { useMemo } from 'react'
 import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 import { z } from 'zod'
 import { CheckoutField } from './checkout-field'
 
@@ -50,6 +52,7 @@ export const CheckoutFormView = ({ onBack }: CheckoutFormViewProps) => {
   const t = useTranslations('profile.myCart')
   const checkoutT = useTranslations('profile.myCart.checkout')
   const { mutateAsync: initiateCheckout, isPending } = useInitiateCheckout()
+  const router = useRouter()
   const checkoutSchema = useMemo(() => createCheckoutSchema(t), [t])
 
   const {
@@ -85,8 +88,16 @@ export const CheckoutFormView = ({ onBack }: CheckoutFormViewProps) => {
       country: values.country.trim() || 'SA',
     }
 
-    await initiateCheckout(payload)
+    try {
+      await initiateCheckout(payload)
+    } catch {
+      // useInitiateCheckout already shows the error toast
+      return
+    }
+
     reset()
+    toast.success(checkoutT('success'))
+    router.push('/profile/order-history')
   }
 
   const busy = isSubmitting || isPending

@@ -9,6 +9,7 @@ import { CalendarCheck2, MessageCircle, Package } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { AllProductsContent } from './all-products-content'
+import { LatestConcerns } from './latest-concerns'
 import { YourRoutinesContents } from './your-routines-contents'
 
 const YourRoutine = () => {
@@ -34,20 +35,7 @@ const YourRoutine = () => {
         />
       </div>
 
-      {/* Skin Concerns Banner */}
-      <div className="mx-auto max-w-4xl px-6">
-        <div className="bg-brand-shade-10 rounded-lg p-4">
-          <h3 className="text-primary-base_medium mb-2 text-lg text-[32px] font-bold">
-            {t('skinConcerns.title')}
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            <span className="flex items-center gap-1 gap-x-2 rounded-full bg-[#989E9A1A] px-3 py-1 text-sm">
-              <Image src={carbon_update_complete} alt="carbon_update_complete" />
-              {t('skinConcerns.acneBreakouts')}
-            </span>
-          </div>
-        </div>
-      </div>
+      <LatestConcerns />
 
       {/* Tabs */}
       <Tabs defaultValue="routine" className="mt-8">

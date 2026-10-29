@@ -107,7 +107,8 @@
         "cityRequired": "City is required",
         "postalCodeRequired": "Postal code is required",
         "countryRequired": "Country is required"
-      }
+      },
+      "success": "Your order has been placed. Thank you!"
     }
   },
   "orderHistory": {

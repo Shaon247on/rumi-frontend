@@ -49,11 +49,26 @@
       "headline": "Modern environments challenge the skin barrier every day.",
       "body": "ELARA was created to help skin recover.",
       "stressors": [
-        { "title": "Pollution", "desc": "Particulate matter that dulls skin vitality." },
-        { "title": "Stress", "desc": "Elevated cortisol leading to micro-inflammation." },
-        { "title": "Climate", "desc": "Extreme temperature and humidity shifts." },
-        { "title": "Blue Light", "desc": "Continuous screen radiation and oxidative strain." },
-        { "title": "Daily Fatigue", "desc": "Disrupted cellular renewal cycles." }
+        {
+          "title": "Pollution",
+          "desc": "Particulate matter that dulls skin vitality."
+        },
+        {
+          "title": "Stress",
+          "desc": "Elevated cortisol leading to micro-inflammation."
+        },
+        {
+          "title": "Climate",
+          "desc": "Extreme temperature and humidity shifts."
+        },
+        {
+          "title": "Blue Light",
+          "desc": "Continuous screen radiation and oxidative strain."
+        },
+        {
+          "title": "Daily Fatigue",
+          "desc": "Disrupted cellular renewal cycles."
+        }
       ]
     },
     "philosophy": {
@@ -181,9 +196,18 @@
       "question": "Clinical Philosophy",
       "headline": "Measured Resilience",
       "stats": [
-        { "value": "95%", "label": "Skin feels more comfortable*" },
-        { "value": "91%", "label": "Healthier-looking glow*" },
-        { "value": "89%", "label": "Barrier appears stronger*" }
+        {
+          "value": "95%",
+          "label": "Skin feels more comfortable*"
+        },
+        {
+          "value": "91%",
+          "label": "Healthier-looking glow*"
+        },
+        {
+          "value": "89%",
+          "label": "Barrier appears stronger*"
+        }
       ],
       "disclaimer": "*Based on a 28-day consumer perception evaluation study of 120 participants."
     },
@@ -198,17 +222,35 @@
       "morning": {
         "title": "Morning Ritual",
         "steps": [
-          { "action": "Apply", "detail": "2–3 drops onto clean skin" },
-          { "action": "Absorb", "detail": "Press gently into face & neck" },
-          { "action": "Protect", "detail": "Follow with daily sun shield" }
+          {
+            "action": "Apply",
+            "detail": "2–3 drops onto clean skin"
+          },
+          {
+            "action": "Absorb",
+            "detail": "Press gently into face & neck"
+          },
+          {
+            "action": "Protect",
+            "detail": "Follow with daily sun shield"
+          }
         ]
       },
       "night": {
         "title": "Night Ritual",
         "steps": [
-          { "action": "Repair", "detail": "Smooth over cleansed skin" },
-          { "action": "Recover", "detail": "Allow active lipids to penetrate" },
-          { "action": "Wake Renewed", "detail": "Awaken to replenished vitality" }
+          {
+            "action": "Repair",
+            "detail": "Smooth over cleansed skin"
+          },
+          {
+            "action": "Recover",
+            "detail": "Allow active lipids to penetrate"
+          },
+          {
+            "action": "Wake Renewed",
+            "detail": "Awaken to replenished vitality"
+          }
         ]
       }
     },
@@ -243,5 +285,61 @@
       "addToBag": "ADD TO BAG",
       "addedToBag": "ADDED TO BAG"
     }
+  },
+  "catalog": {
+    "eyebrow": "Science-Backed Luxury",
+    "title": "The Collection",
+    "description": "Considered formulas for real skin needs, crafted for lasting radiance.",
+    "searchPlaceholder": "Search products",
+    "allCategories": "All",
+    "sortLabel": "Sort by",
+    "sort": {
+      "featured": "Featured",
+      "best": "Best sellers",
+      "new": "New arrivals",
+      "price_asc": "Price: low to high",
+      "price_desc": "Price: high to low"
+    },
+    "skinTypeLabel": "Skin type",
+    "skinTypes": {
+      "all": "All skin types",
+      "oily": "Oily",
+      "dry": "Dry",
+      "normal": "Normal",
+      "combination": "Combination",
+      "sensitive": "Sensitive"
+    },
+    "results": "{count, plural, one {# product} other {# products}}",
+    "addToBag": "Add to bag",
+    "outOfStock": "Out of stock",
+    "viewProduct": "View product",
+    "loginToAdd": "Please sign in to add products to your bag.",
+    "empty": "No products match your selection.",
+    "clearFilters": "Clear filters",
+    "error": "We couldn't load the collection. Please try again.",
+    "retry": "Try again",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {page} of {total}"
+  },
+  "detail": {
+    "addToBag": "Add to bag",
+    "addingToBag": "Adding to bag...",
+    "addedToBag": "Added to bag",
+    "outOfStock": "Out of stock",
+    "quantity": "Quantity",
+    "shippingNote": "Complimentary express shipping",
+    "testedNote": "Dermatologically tested",
+    "save": "Save {percent}%",
+    "description": "The formula",
+    "benefits": "Key benefits",
+    "ingredients": "Key ingredients",
+    "howToUse": "How to use",
+    "skinType": "Suitable for",
+    "related": "You may also like",
+    "backToCollection": "Back to collection",
+    "notFoundTitle": "Product not found",
+    "notFoundDescription": "This product is no longer available.",
+    "error": "We couldn't load this product. Please try again."
   }
 }

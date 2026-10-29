@@ -1,10 +1,10 @@
 {
-  "badge": "AI-Powered Skincare Revolution",
+  "badge": "Skin Intelligence",
   "heading": "Your Personalized Skincare Routine",
-  "subHeading": "Based on your skin analysis, we've curated the perfect routine and products for you.",
+  "subHeading": "Based on your skin profile, we've curated a routine and products for you.",
   "skinConcerns": {
     "title": "Your Skin Concerns",
-    "acneBreakouts": "Acne & Breakouts"
+    "empty": "Complete your skin analysis to see your concerns here."
   },
   "tabs": {
     "yourRoutine": "YOUR ROUTINE",
@@ -18,25 +18,15 @@
     "evening": {
       "title": "Evening Routine",
       "subtitle": "Wind down with night time care"
-    }
-  },
-  "products": {
-    "gentleCleansingGel": {
-      "name": "Gentle Cleansing Gel",
-      "brand": "PureGlow",
-      "type": "Cleanser",
-      "instruction": "Massage gently onto damp skin for 30 seconds, then rinse with lukewarm water."
     },
-    "hydratingEssenceSerum": {
-      "name": "Hydrating Essence Serum",
-      "brand": "GlowLab",
-      "type": "Serum",
-      "instruction": "Apply 2-3 drops to clean, damp skin. Pat gently until absorbed."
-    }
+    "personal": "Your personal routine",
+    "howToUse": "How to use:",
+    "disclaimer": "We recommend checking with a dermatologist for this step.",
+    "summaryNote": "Skincare guidance only, not a medical diagnosis."
   },
   "chatCta": {
     "title": "Have Questions About Your Routine?",
-    "description": "Our AI assistant is here to help! Get personalized advice, ask about specific products, or learn more about ingredients.",
-    "button": "CHAT WITH AI"
+    "description": "Skin Intelligence is here to help. Ask about specific products, ingredients, or how to adjust your routine.",
+    "button": "Ask Skin Intelligence"
   }
 }

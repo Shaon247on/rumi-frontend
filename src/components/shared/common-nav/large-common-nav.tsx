@@ -38,7 +38,7 @@ export const LargeCommonNav = () => {
   return (
     <header className="hidden w-full bg-white lg:block">
       <div className="container mx-auto px-4">
-        <div className="flex min-h-[110px] items-center justify-between">
+        <div className="flex min-h-27.5 items-center justify-between">
           <Link href="/" className="shrink-0">
             <Image
               src={newLogo}

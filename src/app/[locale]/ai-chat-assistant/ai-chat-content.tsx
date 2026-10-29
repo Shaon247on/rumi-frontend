@@ -28,7 +28,9 @@ export const AiChatContent = ({
 }: AiChatContentProps) => {
   const bottomRef = useRef<HTMLDivElement | null>(null)
   const t = useTranslations('aiChatAssistant')
-  const { data: chatHistory, refetch: refetchChatHistory } = useChatHistory()
+  // History is fetched once per visit; everything after that comes from the live socket
+  // (live messages keep product cards and photos that history does not store).
+  const { data: chatHistory } = useChatHistory()
 
   const historyMessages = useMemo(
     () => (chatHistory?.messages ?? []).map(mapChatHistoryMessage),
@@ -41,25 +43,21 @@ export const AiChatContent = ({
   )
 
   const hasVisibleMessages = visibleMessages.length > 0
+  const lastMessage = visibleMessages[visibleMessages.length - 1]
+  const lastContentLength = lastMessage?.content.length ?? 0
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
-  }, [connectionState, isThinking, visibleMessages.length])
-
-  useEffect(() => {
-    if (connectionState !== 'connected' || isThinking || messages.length === 0) {
-      return
-    }
-
-    void refetchChatHistory()
-  }, [connectionState, isThinking, messages.length, refetchChatHistory])
+  }, [connectionState, isThinking, visibleMessages.length, lastContentLength])
 
   return (
-    <div className="flex min-h-full flex-col gap-4 py-6">
-      <div className="flex items-center justify-between gap-3">
-        <ChatConnectionBadge state={connectionState} />
-        {connectionError ? <p className="text-xs text-red-600">{connectionError}</p> : null}
-      </div>
+    <div className="mx-auto flex min-h-full w-full max-w-3xl flex-col gap-4 py-6">
+      {connectionState !== 'connected' || connectionError ? (
+        <div className="flex items-center justify-between gap-3">
+          <ChatConnectionBadge state={connectionState} />
+          {connectionError ? <p className="text-xs text-red-700">{connectionError}</p> : null}
+        </div>
+      ) : null}
 
       {!hasVisibleMessages && connectionState === 'connecting' ? <ChatLoadingSkeleton /> : null}
 
@@ -68,10 +66,12 @@ export const AiChatContent = ({
       ) : null}
 
       {!hasVisibleMessages && connectionState === 'connected' ? (
-        <div className="flex min-h-full items-center justify-center py-16">
-          <div className="max-w-xl rounded-3xl border border-black/5 bg-white/70 p-8 text-center shadow-sm backdrop-blur-sm">
-            <h2 className="text-main-button text-2xl font-semibold">{t('empty.title')}</h2>
-            <p className="text-main-button/70 mt-3 text-sm leading-6">{t('empty.description')}</p>
+        <div className="flex flex-1 items-center justify-center py-12">
+          <div className="max-w-md text-center">
+            <h2 className="font-serif text-2xl font-light text-[#1C1C1A] md:text-3xl">
+              {t('empty.title')}
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-[#5C564E]">{t('empty.description')}</p>
           </div>
         </div>
       ) : null}
@@ -80,7 +80,7 @@ export const AiChatContent = ({
         <ChatMessageBubble key={message.id} message={message} />
       ))}
 
-      {isThinking ? <ChatThinkingBubble /> : null}
+      {isThinking && lastMessage?.role === 'user' ? <ChatThinkingBubble /> : null}
 
       <div ref={bottomRef} />
     </div>

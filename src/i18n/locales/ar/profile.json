@@ -107,7 +107,8 @@
         "cityRequired": "المدينة مطلوبة",
         "postalCodeRequired": "الرمز البريدي مطلوب",
         "countryRequired": "الدولة مطلوبة"
-      }
+      },
+      "success": "تم تقديم طلبك بنجاح. شكراً لك!"
     }
   },
   "orderHistory": {

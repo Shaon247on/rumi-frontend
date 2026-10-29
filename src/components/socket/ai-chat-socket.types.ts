@@ -3,6 +3,7 @@ export type ChatRole = 'assistant' | 'system' | 'user'
 export type ChatConnectionState = 'connected' | 'connecting' | 'disconnected' | 'error' | 'idle'
 
 export type ChatProductRecommendation = {
+  id?: number
   brand?: string
   href?: string
   image?: string
@@ -23,6 +24,9 @@ export type ChatMessage = {
   id: string
   image?: ChatImageAttachment
   product?: ChatProductRecommendation
+  products?: ChatProductRecommendation[]
+  /** The consultant suggested running the full skin analysis */
+  suggestAnalysis?: boolean
   role: ChatRole
 }
 

@@ -1,6 +1,7 @@
 'use client'
 
 import { useAuthStore } from '@/store/auth.store'
+import { useLocale } from 'next-intl'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { createMessageId } from './ai-chat-socket-message'
 import { createChatImageAttachment } from './ai-chat-socket-file'
@@ -22,6 +23,7 @@ export const useAiChatSocket = (
   }
 ) => {
   const accessToken = useAuthStore((state) => state.token.accessToken)
+  const locale = useLocale()
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([])
   const [draft, setDraft] = useState('')
   const [connectionState, setConnectionState] = useState<ChatConnectionState>(() =>
@@ -160,6 +162,7 @@ export const useAiChatSocket = (
             message: content,
             text: content,
             type: 'message',
+            language: locale,
           })
         )
         setIsThinking(true)
@@ -177,6 +180,7 @@ export const useAiChatSocket = (
     [
       accessToken,
       clearStreamingState,
+      locale,
       copy.authRequired,
       copy.connectionError,
       copy.connectionNotReady,
@@ -230,6 +234,42 @@ export const useAiChatSocket = (
           setConnectionState('error')
           setConnectionError(normalized.error ?? copy.connectionError)
           setIsThinking(false)
+          return
+        }
+
+        if (normalized.mode === 'final') {
+          clearStreamingState()
+          setIsThinking(false)
+          setChatMessages((current) => {
+            const lastIndex = current.length - 1
+            const last = current[lastIndex]
+            const finalFields = {
+              content: normalized.content || last?.content || '',
+              products: normalized.products,
+              suggestAnalysis: normalized.suggestAnalysis,
+            }
+
+            // Swap the streamed text for the cleaned final reply
+            if (last && last.role !== 'user') {
+              const next = [...current]
+              next[lastIndex] = { ...last, ...finalFields }
+              return next
+            }
+
+            if (!normalized.content) {
+              return current
+            }
+
+            return [
+              ...current,
+              {
+                ...finalFields,
+                createdAt: new Date().toISOString(),
+                id: createMessageId(),
+                role: 'assistant',
+              },
+            ]
+          })
           return
         }
 

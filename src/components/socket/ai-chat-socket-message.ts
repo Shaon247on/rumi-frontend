@@ -26,7 +26,7 @@ const normalizeRole = (value: unknown): ChatRole => {
 
 const formatPrice = (value: unknown) => {
   if (typeof value === 'number') {
-    return `$${value.toFixed(2)}`
+    return `SAR ${value.toFixed(2)}`
   }
 
   const price = toStringValue(value)
@@ -62,6 +62,7 @@ const normalizeProduct = (value: unknown): ChatProductRecommendation | undefined
   }
 
   return {
+    id: typeof value.id === 'number' ? value.id : undefined,
     brand:
       toStringValue(value.brand) ||
       toStringValue(value.brand_name) ||
@@ -82,6 +83,17 @@ const normalizeProduct = (value: unknown): ChatProductRecommendation | undefined
     name,
     price: formatPrice(value.price),
   }
+}
+
+export const normalizeProductList = (value: unknown): ChatProductRecommendation[] => {
+  if (!Array.isArray(value)) {
+    return []
+  }
+
+  return value.flatMap((item) => {
+    const product = normalizeProduct(item)
+    return product ? [product] : []
+  })
 }
 
 const normalizeImage = (value: unknown): ChatImageAttachment | undefined => {

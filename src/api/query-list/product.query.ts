@@ -59,8 +59,11 @@ export interface SingleProductsResponse {
   data: ProductDetails
 }
 
+export type ProductOrdering = 'best' | 'new' | 'price_asc' | 'price_desc'
+
 export interface ProductFilters {
   category?: number
+  ordering?: ProductOrdering
   max_price?: number
   min_price?: number
   page?: number
@@ -113,6 +116,10 @@ const buildProductFiltersQuery = (filters?: ProductFilters) => {
 
   if (filters.max_price !== undefined) {
     params.set('max_price', filters.max_price.toString())
+  }
+
+  if (filters.ordering) {
+    params.set('ordering', filters.ordering)
   }
 
   if (filters.page !== undefined) {

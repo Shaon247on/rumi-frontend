@@ -106,7 +106,7 @@ export default function ErrorBoundary({
         {/* Footer Tagline */}
         <div className="pointer-events-none absolute right-0 bottom-8 left-0">
           <p className="text-main-primary-base_medium text-center text-sm font-medium">
-            GLOWMI AI Skin Intelligence
+            GLOWMI Skin Intelligence
           </p>
         </div>
       </div>

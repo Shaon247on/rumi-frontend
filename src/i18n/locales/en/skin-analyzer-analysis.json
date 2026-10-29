@@ -1,25 +1,34 @@
 {
   "header": {
+    "eyebrow": "Glowmi",
     "title": "Skin Intelligence",
-    "subtitle": "Share your skin concerns and receive AI-guided skincare recommendations designed to support your glow journey."
+    "tagline": "Discover what your skin truly needs.",
+    "subtitle": "Share your skin concerns and receive science-led guidance designed to support your glow journey."
   },
   "form": {
     "skinType": {
-      "label": "What's your skin type?",
+      "label": "Skin type",
       "options": {
         "oily": "Oily",
         "dry": "Dry",
         "combination": "Combination",
         "normal": "Normal",
         "sensitive": "Sensitive"
+      },
+      "descriptions": {
+        "oily": "Shiny by midday, visible pores",
+        "dry": "Feels tight, flaky or rough",
+        "combination": "Oily T-zone, drier cheeks",
+        "normal": "Balanced, rarely irritated",
+        "sensitive": "Reacts easily, prone to redness"
       }
     },
     "age": {
-      "label": "What's your age?",
+      "label": "Your age",
       "placeholder": "Type your age here"
     },
     "concerns": {
-      "label": "What are your main skin concerns? (Select all that apply)",
+      "label": "Main skin concerns",
       "options": {
         "acne": "Acne & Breakouts",
         "darkSpots": "Dark Spots",
@@ -31,18 +40,20 @@
         "largePores": "Large Pores",
         "others": "Others"
       },
-      "othersPlaceholder": "Input others skin concern"
+      "othersPlaceholder": "Describe your other skin concern",
+      "selectedCount": "{count} selected"
     },
     "additionalDetails": {
       "label": "Additional Details (Optional)",
       "placeholder": "Tell us more about your skincare goals, allergies, or any specific products you'd like to avoid..."
     },
     "uploadPhoto": {
-      "label": "Upload Photo (Optional)",
+      "label": "Skin photo",
       "clickToUpload": "Click to upload or drag and drop",
-      "fileTypes": "PNG, JPG up to 10MB"
+      "fileTypes": "PNG, JPG or WEBP · max 10 MB",
+      "tip": "Tip: use a clear, front-facing photo in natural light without makeup."
     },
-    "submitButton": "ANALYZE & GET RECOMMENDATIONS",
+    "submitButton": "Start My Skin Analysis",
     "validation": {
       "skinTypeRequired": "Select your skin type.",
       "ageRequired": "Enter your age.",
@@ -53,20 +64,50 @@
       "additionalDetailsMax": "Additional details must be 500 characters or less.",
       "photoMaxOne": "Upload only one photo.",
       "photoInvalid": "Photo must be a valid image file under 10 MB."
-    }
+    },
+    "submitting": "Analyzing your skin profile...",
+    "privacyNote": "Your information stays private and is only used to personalize your routine.",
+    "next": "Continue",
+    "back": "Back",
+    "preparing": "Preparing your recommendations..."
   },
   "features": {
-    "aiPowered": {
-      "title": "AI-Powered",
-      "subtitle": "Advanced algorithms analyze your unique skin needs"
+    "scienceLed": {
+      "title": "Science-Led",
+      "subtitle": "Developed around modern skincare science and real skin needs."
     },
     "personalized": {
       "title": "Personalized",
-      "subtitle": "Custom routines based on your specific concerns"
+      "subtitle": "Guidance shaped by your skin type, concerns, and lifestyle."
     },
     "expertBacked": {
       "title": "Expert-Backed",
-      "subtitle": "Recommendations based on dermatological research"
+      "subtitle": "Responsible, credible recommendations focused on your skin."
     }
-  }
+  },
+  "chatAssistant": "Ask Skin Intelligence",
+  "steps": {
+    "skinType": {
+      "label": "Skin Type",
+      "title": "How does your skin usually feel?",
+      "description": "Choose the description closest to your skin on a typical day."
+    },
+    "profile": {
+      "label": "Profile",
+      "title": "A little about you",
+      "description": "Your age and any details help us tailor the guidance to you."
+    },
+    "concerns": {
+      "label": "Skin Concerns",
+      "title": "What would you like to improve?",
+      "description": "Select everything that applies. You can choose more than one."
+    },
+    "photo": {
+      "label": "Photo Upload",
+      "title": "Add a photo (optional)",
+      "description": "A clear photo helps us understand your skin more precisely. You can skip this step."
+    },
+    "details": null
+  },
+  "stepIndicator": "Step {current} of {total}"
 }

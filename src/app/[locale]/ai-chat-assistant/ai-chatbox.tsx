@@ -37,6 +37,8 @@ export const AiChatBox = ({
     t('quickPrompts.acneProducts'),
     t('quickPrompts.vitaminC'),
     t('quickPrompts.sunscreen'),
+    t('quickPrompts.mySkin'),
+    t('quickPrompts.sensitive'),
   ]
 
   const isReady = connectionState === 'connected'
@@ -138,21 +140,35 @@ export const AiChatBox = ({
   }
 
   return (
-    <div className="mx-auto w-full max-w-7xl py-6">
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex items-center gap-3">
-          <div className="flex flex-1 items-center gap-2 rounded-2xl border border-[#6956CB] bg-transparent px-5 py-3">
+    <div className="mx-auto w-full max-w-3xl py-4 md:py-5">
+      <div className="-mx-4 mb-3 flex gap-2 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-wrap md:justify-center md:overflow-visible md:px-0">
+        {quickPrompts.map((prompt) => (
+          <button
+            key={prompt}
+            type="button"
+            className="shrink-0 rounded-full border border-[#E6DFD5] bg-white px-4 py-2 text-xs text-[#2B2B2B] transition-colors hover:border-[#1C1C1A]/40 hover:bg-[#F3EFE8] disabled:cursor-not-allowed disabled:opacity-50"
+            onClick={() => void handleQuickPrompt(prompt)}
+            disabled={!isReady || isSending}
+          >
+            {prompt}
+          </button>
+        ))}
+      </div>
+
+      <form onSubmit={handleSubmit} className="space-y-3">
+        <div className="flex items-center gap-2 md:gap-3">
+          <div className="flex flex-1 items-center gap-2 rounded-full border border-[#D9D2C7] bg-white px-5 py-1.5 transition-colors focus-within:border-[#1C1C1A]/50">
             <Input
               type="text"
               value={draft}
               onChange={(event) => onDraftChange(event.target.value)}
               placeholder={t('inputPlaceholder')}
-              className="text-main-button placeholder:text-main-secondary border-0 bg-transparent px-0 text-sm shadow-none outline-none focus-visible:ring-0"
+              className="border-0 bg-transparent px-0 text-sm text-[#1C1C1A] shadow-none outline-none placeholder:text-[#8C8275] focus-visible:ring-0"
               disabled={!isReady}
             />
             <button
               type="button"
-              className="hover:text-main-button text-[#757575] transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+              className="text-[#8C8275] transition-colors hover:text-[#1C1C1A] disabled:cursor-not-allowed disabled:opacity-50"
               aria-label={t('actions.attach')}
               onClick={handlePhotoButtonClick}
               disabled={!isReady}
@@ -170,16 +186,16 @@ export const AiChatBox = ({
           </div>
           <Button
             type="submit"
-            className="size-12 rounded-xl bg-[#6956CB] p-0 hover:bg-[#6956CB]/90"
+            className="size-11 shrink-0 rounded-full bg-[#1C1C1A] p-0 hover:bg-[#2C2A29]"
             disabled={!canSend}
             aria-label={t('actions.send')}
           >
-            <Send className="size-5 text-white" fill="white" />
+            <Send className="size-4 text-ivory rtl:-scale-x-100" />
           </Button>
         </div>
 
         {photoPreviewUrl ? (
-          <div className="border-main-button/15 flex items-center gap-3 rounded-2xl border bg-white px-4 py-3 shadow-sm">
+          <div className="flex items-center gap-3 rounded-2xl border border-[#E6DFD5] bg-white px-4 py-3">
             <div className="bg-main-button/5 overflow-hidden rounded-xl">
               <Image
                 src={photoPreviewUrl}
@@ -213,41 +229,19 @@ export const AiChatBox = ({
 
         {photoError ? <p className="text-xs text-red-600">{photoError}</p> : null}
 
-        <div className="flex items-center justify-between gap-3">
-          <p className="text-main-button/60 text-xs">
-            {connectionState === 'connected'
-              ? t('status.connected')
-              : connectionState === 'connecting'
-                ? t('status.connecting')
-                : connectionState === 'error'
-                  ? t('status.error')
-                  : t('status.disconnected')}
-          </p>
+        <div className="flex items-center justify-between gap-3 px-2">
+          <p className="text-[11px] text-[#8C8275]">{t('disclaimer')}</p>
           {connectionError ? (
             <button
               type="button"
               onClick={onRetry}
-              className="text-main-button text-xs font-medium hover:underline"
+              className="text-xs font-medium text-[#1C1C1A] hover:underline"
             >
               {t('actions.retry')}
             </button>
           ) : null}
         </div>
       </form>
-
-      <div className="mt-4 flex flex-wrap justify-center gap-2">
-        {quickPrompts.map((prompt) => (
-          <button
-            key={prompt}
-            type="button"
-            className="rounded-full bg-[#7D7D7D] px-4 py-2 text-xs text-white transition-colors hover:bg-[#7D7D7D]/90 disabled:cursor-not-allowed disabled:opacity-50"
-            onClick={() => void handleQuickPrompt(prompt)}
-            disabled={!isReady || isSending}
-          >
-            {prompt}
-          </button>
-        ))}
-      </div>
     </div>
   )
 }

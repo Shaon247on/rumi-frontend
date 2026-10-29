@@ -10,7 +10,7 @@ import { usePathname, useRouter } from '@/i18n/navigation'
 import { localeNames, routing } from '@/i18n/routing'
 import { cn } from '@/lib/utils'
 import { useLocale } from 'next-intl'
-import { Globe } from 'lucide-react'
+import { Languages } from 'lucide-react'
 
 export function LanguageToggle() {
   const locale = useLocale()
@@ -27,7 +27,7 @@ export function LanguageToggle() {
         className="inline-flex h-[36px] w-[36px] items-center justify-center rounded-full text-[#363739] transition-colors hover:bg-[rgba(26,46,26,0.06)] hover:text-[#1a2e1a] focus:outline-none"
         aria-label="Change language"
       >
-        <Globe className="size-4" strokeWidth={1.5} />
+        <Languages className="size-5" strokeWidth={1.5} />
         <span className="sr-only">Toggle language</span>
       </DropdownMenuTrigger>
       <DropdownMenuContent

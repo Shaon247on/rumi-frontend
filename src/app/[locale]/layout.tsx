@@ -26,12 +26,12 @@ export async function generateMetadata({
   const isAr = locale === "ar";
 
   const title = isAr
-    ? "غلومي - العناية بالبشرة القائمة على العلم والذكاء الاصطناعي"
-    : "GLOWMI - Science-Backed Skincare & AI Skin Intelligence";
+    ? "غلومي - عناية فاخرة بالبشرة قائمة على العلم وذكاء البشرة"
+    : "GLOWMI - Science-Backed Skincare & Skin Intelligence";
 
   const description = isAr
-    ? "اكتشف غلومي، العلامة التجارية السعودية الفاخرة للعناية بالبشرة. نقدم تحليلاً ذكياً للبشرة مدعوماً بالذكاء الاصطناعي وروتينات مخصصة مصممة علمياً لبشرتك."
-    : "Discover GLOWMI, the premier Saudi luxury skincare brand focused on science-backed skin intelligence. Explore AI-powered skin analysis and personalized routines.";
+    ? "اكتشف غلومي، العلامة التجارية السعودية الفاخرة للعناية بالبشرة. نقدم تحليلاً دقيقاً للبشرة وروتينات مخصصة مصممة علمياً لبشرتك."
+    : "Discover GLOWMI, the premier Saudi luxury skincare brand focused on science-backed skin intelligence. Explore science-led skin analysis and personalized routines.";
 
   const keywords = isAr
     ? [
@@ -133,7 +133,7 @@ export default async function RootLayout({
     url: "https://glowmi.com",
     logo: "https://glowmi.com/placeholder-logo.png",
     description: isRTL
-      ? "جلومي هي علامة تجارية سعودية فاخرة للعناية بالبشرة تركز على ذكاء البشرة المدعوم بالعلم والذكاء الاصطناعي."
+      ? "جلومي هي علامة تجارية سعودية فاخرة للعناية بالبشرة تركز على ذكاء البشرة المدعوم بالعلم."
       : "Glowmi is a Saudi luxury skincare brand focused on science-backed skin intelligence.",
     sameAs: ["https://www.instagram.com/glowmi", "https://twitter.com/glowmi"],
     address: {

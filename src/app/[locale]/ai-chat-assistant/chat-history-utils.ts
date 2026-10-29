@@ -10,19 +10,9 @@ export const mapChatHistoryMessage = (message: ShopChatHistoryMessage): ChatMess
   }
 }
 
-export const mergeChatMessages = (historyMessages: ChatMessage[], liveMessages: ChatMessage[]) => {
-  const latestHistoryTime = historyMessages.reduce((latest, message) => {
-    const timestamp = Date.parse(message.createdAt)
-    return Number.isNaN(timestamp) ? latest : Math.max(latest, timestamp)
-  }, 0)
-
-  const filteredLiveMessages =
-    latestHistoryTime > 0
-      ? liveMessages.filter((message) => {
-          const timestamp = Date.parse(message.createdAt)
-          return Number.isNaN(timestamp) ? true : timestamp > latestHistoryTime
-        })
-      : liveMessages
-
-  return [...historyMessages, ...filteredLiveMessages]
-}
+// History is a snapshot taken when the page opens, and live messages are everything sent
+// since, so the two never overlap and can simply be joined.
+export const mergeChatMessages = (historyMessages: ChatMessage[], liveMessages: ChatMessage[]) => [
+  ...historyMessages,
+  ...liveMessages,
+]
