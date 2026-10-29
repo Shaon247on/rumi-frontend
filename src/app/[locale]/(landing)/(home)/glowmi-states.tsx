@@ -53,7 +53,7 @@ export const GlowmiStates = async () => {
   const labelClass =
     'mb-2 text-[9px] leading-none font-medium tracking-[0.2em] text-[#8A8378] uppercase lg:mb-2.5 lg:text-[10px] xl:text-[11px] xl:tracking-[0.25em]'
   const titleClass =
-    'mb-3 text-[18px] leading-[1] font-medium xl:tracking-[-0.18rem] text-[#1A2E1A] lg:mb-4 lg:text-[23px] xl:text-[52px]'
+    'mb-3 text-[18px] leading-[1] font-medium xl:tracking-[-0.18rem] text-[#1A2E1A] lg:mb-4 lg:text-[23px] xl:text-[40px]'
   const subtitleClass =
     'mb-5 max-w-[24ch] text-[13px] leading-[1.6] font-light text-[#6B655F] lg:mb-6 lg:max-w-[26ch] lg:text-[12px] xl:mb-8 xl:max-w-[28ch] xl:text-[15px] xl:leading-[1.75]'
   const learnMoreClass =
