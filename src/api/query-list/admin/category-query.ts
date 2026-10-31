@@ -1,27 +1,26 @@
-import { axiosClient } from '@/lib/axios'
 import { appendFormDataValue } from '@/lib/api-form-data'
+import { axiosClient } from '@/lib/axios'
+import { fetchAdminList, type ApiEnvelope, type ListFilters } from './dashboard-query'
 
 export interface AdminCategory {
   id: number
   name: string
-  image: string
+  image: string | null
   created_at: string
   updated_at: string
+  product_count: number
+  quantity: number
+  sale: number
 }
 
-export interface CreateAdminCategoryRequestData {
-  name: string
-  image?: File | string
-}
-
-export interface UpdateAdminCategoryRequestData {
+export interface AdminCategoryRequestData {
   name?: string
-  image?: File | string
+  image?: File
 }
 
-const createCategoryFormData = (
-  data: CreateAdminCategoryRequestData | UpdateAdminCategoryRequestData
-) => {
+const multipart = { headers: { 'Content-Type': 'multipart/form-data' } }
+
+const createCategoryFormData = (data: AdminCategoryRequestData) => {
   const formData = new FormData()
 
   for (const [key, value] of Object.entries(data)) {
@@ -32,24 +31,22 @@ const createCategoryFormData = (
 }
 
 export const adminCategoryApi = {
-  getCategories: () => axiosClient.get<AdminCategory[]>('/adminapi/category/'),
+  getCategories: (filters: ListFilters) =>
+    fetchAdminList<AdminCategory>('/adminapi/category/', filters),
 
-  createCategory: (data: CreateAdminCategoryRequestData) =>
-    axiosClient.post<AdminCategory>('/adminapi/category/', createCategoryFormData(data), {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    }),
+  createCategory: (data: AdminCategoryRequestData) =>
+    axiosClient.post<ApiEnvelope<AdminCategory>>(
+      '/adminapi/category/',
+      createCategoryFormData(data),
+      multipart
+    ),
 
-  getCategoryById: (id: number | string) =>
-    axiosClient.get<AdminCategory>(`/adminapi/categories/${id}/`),
+  updateCategory: (id: number, data: AdminCategoryRequestData) =>
+    axiosClient.patch<ApiEnvelope<AdminCategory>>(
+      `/adminapi/categories/${id}/`,
+      createCategoryFormData(data),
+      multipart
+    ),
 
-  updateCategory: (id: number | string, data: UpdateAdminCategoryRequestData) =>
-    axiosClient.patch<AdminCategory>(`/adminapi/categories/${id}/`, createCategoryFormData(data), {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    }),
-
-  deleteCategory: (id: number | string) => axiosClient.delete<void>(`/adminapi/categories/${id}/`),
+  deleteCategory: (id: number) => axiosClient.delete(`/adminapi/categories/${id}/`),
 }

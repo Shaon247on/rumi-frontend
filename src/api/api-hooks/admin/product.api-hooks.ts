@@ -1,50 +1,39 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient, keepPreviousData } from '@tanstack/react-query'
 import type { AxiosError } from 'axios'
 import { getApiErrorMessage } from '@/lib/api-error'
 import toast from 'react-hot-toast'
 import {
   adminProductApi,
-  type CreateAdminProductRequestData,
-  type UpdateAdminProductRequestData,
+  type AdminProductRequestData,
+  type ProductAdminFilters,
 } from '../../query-list/admin/product-query'
 
-const ADMIN_PRODUCT_KEYS = {
-  all: () => ['admin', 'products'] as const,
-  lists: () => ['admin', 'products', 'list'] as const,
-  detail: (id: number | string) => ['admin', 'products', 'detail', id] as const,
+// Saving a product also changes the public catalog and the dashboard figures
+const REFRESH_KEYS = [['admin'], ['products']]
+
+const useRefresh = () => {
+  const queryClient = useQueryClient()
+  return () => {
+    REFRESH_KEYS.forEach((queryKey) => queryClient.invalidateQueries({ queryKey }))
+  }
 }
 
-export const useAdminProducts = () => {
+export const useAdminProducts = (filters: ProductAdminFilters) => {
   return useQuery({
-    queryKey: ADMIN_PRODUCT_KEYS.lists(),
-    queryFn: () => adminProductApi.getProducts(),
-    select: (response) => response.data,
-  })
-}
-
-export const useAdminProduct = (id?: number | string) => {
-  return useQuery({
-    queryKey: ADMIN_PRODUCT_KEYS.detail(id ?? 'unknown'),
-    queryFn: async () => {
-      if (id === undefined) {
-        throw new Error('Product id is required')
-      }
-
-      return adminProductApi.getProductById(id)
-    },
-    enabled: id !== undefined,
-    select: (response) => response.data,
+    queryKey: ['admin', 'products', 'list', filters],
+    queryFn: () => adminProductApi.getProducts(filters),
+    placeholderData: keepPreviousData,
   })
 }
 
 export const useCreateAdminProduct = () => {
-  const queryClient = useQueryClient()
+  const refresh = useRefresh()
 
   return useMutation({
-    mutationFn: (data: CreateAdminProductRequestData) => adminProductApi.createProduct(data),
+    mutationFn: (data: AdminProductRequestData) => adminProductApi.createProduct(data),
 
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ADMIN_PRODUCT_KEYS.all() })
+      refresh()
       toast.success('Product created successfully')
     },
 
@@ -55,15 +44,14 @@ export const useCreateAdminProduct = () => {
 }
 
 export const useUpdateAdminProduct = () => {
-  const queryClient = useQueryClient()
+  const refresh = useRefresh()
 
   return useMutation({
-    mutationFn: ({ id, data }: { id: number | string; data: UpdateAdminProductRequestData }) =>
+    mutationFn: ({ id, data }: { id: number; data: AdminProductRequestData }) =>
       adminProductApi.updateProduct(id, data),
 
-    onSuccess: (_response, variables) => {
-      queryClient.invalidateQueries({ queryKey: ADMIN_PRODUCT_KEYS.all() })
-      queryClient.invalidateQueries({ queryKey: ADMIN_PRODUCT_KEYS.detail(variables.id) })
+    onSuccess: () => {
+      refresh()
       toast.success('Product updated successfully')
     },
 
@@ -74,13 +62,13 @@ export const useUpdateAdminProduct = () => {
 }
 
 export const useDeleteAdminProduct = () => {
-  const queryClient = useQueryClient()
+  const refresh = useRefresh()
 
   return useMutation({
-    mutationFn: (id: number | string) => adminProductApi.deleteProduct(id),
+    mutationFn: (id: number) => adminProductApi.deleteProduct(id),
 
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ADMIN_PRODUCT_KEYS.all() })
+      refresh()
       toast.success('Product deleted successfully')
     },
 

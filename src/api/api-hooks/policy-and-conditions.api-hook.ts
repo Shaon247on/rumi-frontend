@@ -1,7 +1,4 @@
 import { useQuery } from '@tanstack/react-query'
-import type { AxiosError } from 'axios'
-import { getApiErrorMessage } from '@/lib/api-error'
-import toast from 'react-hot-toast'
 import { policyAndConditionsApi } from '../query-list/policy-and-conditions.query'
 
 // ─── Query keys ────────────────────────────────────────────────────────────────
@@ -14,16 +11,15 @@ const POLICY_KEYS = {
 
 // ─── Hooks ─────────────────────────────────────────────────────────────────────
 
+// The API answers 404 until an admin saves a policy. That is expected: the page
+// keeps showing its built-in text, so these queries neither retry nor raise a toast.
+
 export const usePrivacyPolicy = () => {
   return useQuery({
     queryKey: POLICY_KEYS.privacyPolicy(),
     queryFn: () => policyAndConditionsApi.getPrivacyPolicy(),
     select: (response) => response.data.data,
-
-    throwOnError: (error: AxiosError) => {
-      toast.error(getApiErrorMessage(error, 'Failed to load Privacy Policy'))
-      return false
-    },
+    retry: false,
   })
 }
 
@@ -32,10 +28,6 @@ export const useTermsAndConditions = () => {
     queryKey: POLICY_KEYS.termsAndConditions(),
     queryFn: () => policyAndConditionsApi.getTermsAndConditions(),
     select: (response) => response.data.data,
-
-    throwOnError: (error: AxiosError) => {
-      toast.error(getApiErrorMessage(error, 'Failed to load Terms and Conditions'))
-      return false
-    },
+    retry: false,
   })
 }

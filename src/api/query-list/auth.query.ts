@@ -1,5 +1,6 @@
 import { appendFormDataValue } from '@/lib/api-form-data'
 import { axiosClient } from '@/lib/axios'
+import { useAuthStore } from '@/store/auth.store'
 
 export type AuthGender = 'male' | 'female' | 'other'
 
@@ -146,5 +147,9 @@ export const authApi = {
       })
       .then(normalizeAuthResponse),
 
-  logout: () => axiosClient.post<AuthMessageResponse>('/logout/'),
+  // The API blacklists the refresh token, so it has to be sent along
+  logout: () =>
+    axiosClient.post<AuthMessageResponse>('/logout/', {
+      refresh: useAuthStore.getState().token.refreshToken,
+    }),
 }

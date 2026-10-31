@@ -48,7 +48,7 @@ const Login = () => {
       if (loginData) {
         setUser(loginData.user ?? null)
         setToken({ accessToken: loginData.access, refreshToken: loginData.refresh })
-        router.push('/skin-analyzer/skin-intelligence')
+        router.push(loginData.user?.role === 'admin' ? '/dashboard' : '/skin-analyzer/skin-intelligence')
       }
     } catch (error) {
       console.log('🚀 ~ onSubmit ~ error:', error)

@@ -1,5 +1,6 @@
-import { axiosClient } from '@/lib/axios'
 import { appendFormDataValue, appendFormDataValues } from '@/lib/api-form-data'
+import { axiosClient } from '@/lib/axios'
+import { cleanParams, type ApiEnvelope, type ListFilters, type Paginated } from './dashboard-query'
 
 export interface AdminProductImage {
   id: number
@@ -11,63 +12,47 @@ export interface AdminProduct {
   category: number
   category_name?: string
   title: string
-  sub_title: string
-  skin_type: string
-  description: string
-  key_ingredients: string
-  how_to_use: string
-  key_benefits: string
-  size?: string
-  sku: string
+  sub_title: string | null
+  skin_type: string | null
+  description: string | null
+  key_ingredients: string | null
+  how_to_use: string | null
+  key_benefits: string | null
+  size: string | null
+  sku: string | null
   price: string
-  discount?: string
-  stock?: number
-  reserved_stock?: number
-  is_available?: boolean
-  video?: string
+  discount: string
+  stock: number
   images: AdminProductImage[]
-  created_at?: string
-  updated_at?: string
+  order_count: number
+  created_at: string
 }
 
-export interface BaseAdminProductRequestData {
+export interface AdminProductRequestData {
   category?: number
-  description?: string
-  how_to_use?: string
-  is_available?: boolean
-  key_benefits?: string
-  key_ingredients?: string
-  price?: string
-  reserved_stock?: number
-  size?: string
-  skin_type?: string
-  sku?: string
-  stock?: number
-  sub_title?: string
   title?: string
+  sub_title?: string
+  sku?: string
+  price?: string
+  size?: string
   discount?: string
-  video?: File | string
+  stock?: number
+  skin_type?: string
+  description?: string
+  key_ingredients?: string
+  key_benefits?: string
+  how_to_use?: string
   images?: File[]
 }
 
-export interface CreateAdminProductRequestData extends BaseAdminProductRequestData {
-  category: number
-  description: string
-  how_to_use: string
-  key_benefits: string
-  key_ingredients: string
-  price: string
-  skin_type: string
-  sku: string
-  sub_title: string
-  title: string
+export interface ProductAdminFilters extends ListFilters {
+  stock?: string
+  category?: number
 }
 
-export type UpdateAdminProductRequestData = BaseAdminProductRequestData
+const multipart = { headers: { 'Content-Type': 'multipart/form-data' } }
 
-const createProductFormData = (
-  data: CreateAdminProductRequestData | UpdateAdminProductRequestData
-) => {
+const createProductFormData = (data: AdminProductRequestData) => {
   const formData = new FormData()
   const { images, ...rest } = data
 
@@ -83,24 +68,27 @@ const createProductFormData = (
 }
 
 export const adminProductApi = {
-  getProducts: () => axiosClient.get<AdminProduct[]>('/adminapi/product/'),
+  getProducts: async (filters: ProductAdminFilters) => {
+    const response = await axiosClient.get<ApiEnvelope<Paginated<AdminProduct>>>(
+      '/adminapi/product/',
+      { params: cleanParams(filters) }
+    )
+    return response.data.data
+  },
 
-  createProduct: (data: CreateAdminProductRequestData) =>
-    axiosClient.post<AdminProduct>('/adminapi/product/', createProductFormData(data), {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    }),
+  createProduct: (data: AdminProductRequestData) =>
+    axiosClient.post<ApiEnvelope<AdminProduct>>(
+      '/adminapi/product/',
+      createProductFormData(data),
+      multipart
+    ),
 
-  getProductById: (id: number | string) =>
-    axiosClient.get<AdminProduct>(`/adminapi/products/${id}/`),
+  updateProduct: (id: number, data: AdminProductRequestData) =>
+    axiosClient.patch<ApiEnvelope<AdminProduct>>(
+      `/adminapi/products/${id}/`,
+      createProductFormData(data),
+      multipart
+    ),
 
-  updateProduct: (id: number | string, data: UpdateAdminProductRequestData) =>
-    axiosClient.patch<AdminProduct>(`/adminapi/products/${id}/`, createProductFormData(data), {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    }),
-
-  deleteProduct: (id: number | string) => axiosClient.delete<void>(`/adminapi/products/${id}/`),
+  deleteProduct: (id: number) => axiosClient.delete(`/adminapi/products/${id}/`),
 }

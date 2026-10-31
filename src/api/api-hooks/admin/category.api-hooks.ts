@@ -1,50 +1,37 @@
-import { getApiErrorMessage } from '@/lib/api-error'
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient, keepPreviousData } from '@tanstack/react-query'
 import type { AxiosError } from 'axios'
+import { getApiErrorMessage } from '@/lib/api-error'
 import toast from 'react-hot-toast'
 import {
   adminCategoryApi,
-  type CreateAdminCategoryRequestData,
-  type UpdateAdminCategoryRequestData,
+  type AdminCategoryRequestData,
 } from '../../query-list/admin/category-query'
+import type { ListFilters } from '../../query-list/admin/dashboard-query'
 
-const ADMIN_CATEGORY_KEYS = {
-  all: () => ['admin', 'categories'] as const,
-  lists: () => ['admin', 'categories', 'list'] as const,
-  detail: (id: number | string) => ['admin', 'categories', 'detail', id] as const,
+const useRefresh = () => {
+  const queryClient = useQueryClient()
+  return () => {
+    queryClient.invalidateQueries({ queryKey: ['admin'] })
+    queryClient.invalidateQueries({ queryKey: ['categories'] })
+  }
 }
 
-export const useAdminCategories = () => {
+export const useAdminCategories = (filters: ListFilters) => {
   return useQuery({
-    queryKey: ADMIN_CATEGORY_KEYS.lists(),
-    queryFn: () => adminCategoryApi.getCategories(),
-    select: (response) => response.data,
-  })
-}
-
-export const useAdminCategory = (id?: number | string) => {
-  return useQuery({
-    queryKey: ADMIN_CATEGORY_KEYS.detail(id ?? 'unknown'),
-    queryFn: async () => {
-      if (id === undefined) {
-        throw new Error('Category id is required')
-      }
-
-      return adminCategoryApi.getCategoryById(id)
-    },
-    enabled: id !== undefined,
-    select: (response) => response.data,
+    queryKey: ['admin', 'categories', 'list', filters],
+    queryFn: () => adminCategoryApi.getCategories(filters),
+    placeholderData: keepPreviousData,
   })
 }
 
 export const useCreateAdminCategory = () => {
-  const queryClient = useQueryClient()
+  const refresh = useRefresh()
 
   return useMutation({
-    mutationFn: (data: CreateAdminCategoryRequestData) => adminCategoryApi.createCategory(data),
+    mutationFn: (data: AdminCategoryRequestData) => adminCategoryApi.createCategory(data),
 
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ADMIN_CATEGORY_KEYS.all() })
+      refresh()
       toast.success('Category created successfully')
     },
 
@@ -55,15 +42,14 @@ export const useCreateAdminCategory = () => {
 }
 
 export const useUpdateAdminCategory = () => {
-  const queryClient = useQueryClient()
+  const refresh = useRefresh()
 
   return useMutation({
-    mutationFn: ({ id, data }: { id: number | string; data: UpdateAdminCategoryRequestData }) =>
+    mutationFn: ({ id, data }: { id: number; data: AdminCategoryRequestData }) =>
       adminCategoryApi.updateCategory(id, data),
 
-    onSuccess: (_response, variables) => {
-      queryClient.invalidateQueries({ queryKey: ADMIN_CATEGORY_KEYS.all() })
-      queryClient.invalidateQueries({ queryKey: ADMIN_CATEGORY_KEYS.detail(variables.id) })
+    onSuccess: () => {
+      refresh()
       toast.success('Category updated successfully')
     },
 
@@ -74,13 +60,13 @@ export const useUpdateAdminCategory = () => {
 }
 
 export const useDeleteAdminCategory = () => {
-  const queryClient = useQueryClient()
+  const refresh = useRefresh()
 
   return useMutation({
-    mutationFn: (id: number | string) => adminCategoryApi.deleteCategory(id),
+    mutationFn: (id: number) => adminCategoryApi.deleteCategory(id),
 
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ADMIN_CATEGORY_KEYS.all() })
+      refresh()
       toast.success('Category deleted successfully')
     },
 
