@@ -122,7 +122,10 @@ export const FilterSelect = ({
       if (next) onChange(next)
     }}
   >
-    <SelectTrigger className="w-44 border-white/30 bg-white/10 text-white" aria-label="Filter">
+    <SelectTrigger
+      className="w-44 border-white/30 bg-white/10 text-white [&_svg]:text-white"
+      aria-label="Filter"
+    >
       <Filter className="mr-2 size-4" />
       <SelectValue />
     </SelectTrigger>
@@ -183,7 +186,7 @@ export const TablePagination = ({
                   isActive={item === page}
                   onClick={(event) => go(event, item)}
                   className={
-                    item === page ? 'bg-white text-main-button' : 'border-white/30 text-white'
+                    item === page ? 'bg-white text-dashboard' : 'border-white/30 text-white'
                   }
                 >
                   {item}
@@ -233,13 +236,13 @@ export const TableState = ({
       <TableCell colSpan={colSpan} className="h-32 text-center">
         {isLoading ? (
           <div className="flex items-center justify-center">
-            <div className="border-t-main-button size-8 animate-spin rounded-full border-4 border-gray-200" />
+            <div className="border-t-dashboard size-8 animate-spin rounded-full border-4 border-gray-200" />
           </div>
         ) : isError ? (
           <div className="space-y-2">
             <p className="text-red-500">Could not load this data.</p>
             {onRetry ? (
-              <button type="button" onClick={onRetry} className="text-main-button text-sm underline">
+              <button type="button" onClick={onRetry} className="text-dashboard text-sm underline">
                 Try again
               </button>
             ) : null}

@@ -40,13 +40,13 @@ const MemberPage = () => {
         <Table>
           <TableHeader className="bg-[#f5f4f3]">
             <TableRow className="border-b-0">
-              <TableHead className="text-main-button font-medium">Membership ID</TableHead>
-              <TableHead className="text-main-button font-medium">Name</TableHead>
-              <TableHead className="text-main-button font-medium">Email</TableHead>
-              <TableHead className="text-main-button font-medium">Contact Number</TableHead>
-              <TableHead className="text-main-button font-medium">Skin Type</TableHead>
-              <TableHead className="text-main-button font-medium">Birthday</TableHead>
-              <TableHead className="text-main-button text-right font-medium">Action</TableHead>
+              <TableHead className="text-dashboard font-medium">Membership ID</TableHead>
+              <TableHead className="text-dashboard font-medium">Name</TableHead>
+              <TableHead className="text-dashboard font-medium">Email</TableHead>
+              <TableHead className="text-dashboard font-medium">Contact Number</TableHead>
+              <TableHead className="text-dashboard font-medium">Skin Type</TableHead>
+              <TableHead className="text-dashboard font-medium">Birthday</TableHead>
+              <TableHead className="text-dashboard text-right font-medium">Action</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -60,16 +60,16 @@ const MemberPage = () => {
             />
             {members.map((member) => (
               <TableRow key={member.membership_id} className="border-b border-gray-100">
-                <TableCell className="text-main-button">{member.membership_id}</TableCell>
+                <TableCell className="text-dashboard">{member.membership_id}</TableCell>
                 <TableCell>
-                  <span className="text-main-button font-medium">{member.name || '-'}</span>
+                  <span className="text-dashboard font-medium">{member.name || '-'}</span>
                 </TableCell>
-                <TableCell className="text-main-button">{member.email}</TableCell>
-                <TableCell className="text-main-button">{member.contact_number || 'N/A'}</TableCell>
-                <TableCell className="text-main-button capitalize">
+                <TableCell className="text-dashboard">{member.email}</TableCell>
+                <TableCell className="text-dashboard">{member.contact_number || 'N/A'}</TableCell>
+                <TableCell className="text-dashboard capitalize">
                   {member.skin_type || 'N/A'}
                 </TableCell>
-                <TableCell className="text-main-button">{member.birth_date || 'N/A'}</TableCell>
+                <TableCell className="text-dashboard">{member.birth_date || 'N/A'}</TableCell>
                 <TableCell>
                   <div className="flex items-center justify-end gap-2">
                     {member.email !== currentUserEmail ? (

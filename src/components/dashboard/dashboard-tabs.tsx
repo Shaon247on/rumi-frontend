@@ -25,6 +25,10 @@ export const dashboardNavList = [
   { icon: icon8, label: 'Settings', href: '/dashboard/settings' },
 ]
 
+// The shared close button is dark by default, which disappears on green
+export const greenPanelClassName =
+  'bg-dashboard [&_[data-slot$=-close]]:text-white [&_[data-slot$=-close]]:hover:bg-white/10 [&_[data-slot$=-close]]:hover:text-white'
+
 export const DashboardTabs = () => {
   const pathname = usePathname()
 
@@ -40,8 +44,8 @@ export const DashboardTabs = () => {
               key={item.href}
               href={item.href}
               className={cn(
-                'flex items-center gap-2 border-b-2 pb-3 text-xl leading-none font-normal text-[#E6DFC2BF] transition-colors hover:text-[#E6DFC2BF]/70',
-                isActive ? 'border-main-button text-[#F8F5EE]!' : 'border-transparent'
+                'flex items-center gap-2 border-b-2 pb-3 text-xl leading-none font-normal text-[#E6DFC2BF] transition-colors hover:text-[#F8F5EE]',
+                isActive ? 'border-[#F8F5EE] text-[#F8F5EE]!' : 'border-transparent'
               )}
             >
               <Image src={item.icon} alt="" className="size-6" />

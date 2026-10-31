@@ -80,10 +80,10 @@ export const AddCategory = ({
               <Image src={preview} alt="" fill unoptimized className="object-contain p-2" />
             ) : (
               <>
-                <Upload className="text-main-button size-8" />
-                <p className="text-muted-foreground mt-2 px-4 text-center text-sm">
+                <Upload className="text-dashboard size-8" />
+                <p className="text-dashboard/80 mt-2 px-4 text-center text-sm">
                   Drop your image here or{' '}
-                  <span className="text-main-button">click to browse</span>
+                  <span className="text-dashboard">click to browse</span>
                 </p>
               </>
             )}
@@ -100,7 +100,7 @@ export const AddCategory = ({
           <span />
           <Button
             type="submit"
-            className="bg-main-button hover:bg-main-button/90 w-32 text-white"
+            className="bg-dashboard hover:bg-dashboard/90 w-32 text-white"
             disabled={isPending}
           >
             {isPending ? 'Saving...' : 'Save'}

@@ -46,6 +46,8 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   --color-main-button: #363739;
+  --color-dashboard: #244731;
+  --color-dashboard-deep: #14291c;
   --color-charcoal: #2b2b2b;
   --color-main-foreground: #f4e9da;
   --color-main-primary-base_medium: #755033;
@@ -94,4 +96,9 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+}
+
+/* Dialogs portal to <body>, outside the dashboard layout */
+body:has([data-dashboard]) :is([data-slot='dialog-overlay'], [data-slot='alert-dialog-overlay']) {
+  background-color: var(--color-dashboard-deep);
 }

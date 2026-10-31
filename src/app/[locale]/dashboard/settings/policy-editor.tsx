@@ -114,7 +114,7 @@ export const PolicyEditor = ({
         </p>
         <Button
           type="button"
-          className="text-main-button bg-[#f5f4f3] px-12 hover:bg-[#e8e6e3]"
+          className="text-dashboard bg-[#f5f4f3] px-12 hover:bg-[#e8e6e3]"
           disabled={isPending || isLoading || !content.trim()}
           onClick={() => void handleSave()}
         >
@@ -127,7 +127,7 @@ export const PolicyEditor = ({
           <Input
             placeholder="Add new box"
             aria-label="New section heading"
-            className="bg-main-button flex-1 border-white/30 text-white placeholder:text-white/50"
+            className="bg-dashboard flex-1 border-white/30 text-white placeholder:text-white/50"
             value={newBox}
             onChange={(event) => setNewBox(event.target.value)}
             onKeyDown={(event) => {
@@ -141,7 +141,7 @@ export const PolicyEditor = ({
             type="button"
             size="icon"
             aria-label="Add section"
-            className="text-main-button bg-[#f5f4f3] hover:bg-[#e8e6e3]"
+            className="text-dashboard bg-[#f5f4f3] hover:bg-[#e8e6e3]"
             onClick={addBox}
           >
             <Plus className="size-5" />

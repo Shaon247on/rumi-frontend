@@ -47,7 +47,7 @@ type ProductFormData = z.infer<typeof productSchema>
 const SKIN_TYPES = ['oily', 'dry', 'normal', 'combination', 'sensitive']
 
 const labelClassName = 'text-sm font-medium text-white'
-const inputClassName = 'text-main-button border-0 bg-[#F8F5EE]'
+const inputClassName = 'text-dashboard border-0 bg-[#F8F5EE]'
 
 const Field = ({
   label,
@@ -280,14 +280,14 @@ export const AddProduct = ({ product, onDone }: { product?: AdminProduct; onDone
         <div className="space-y-1.5">
           <span className={labelClassName}>Images</span>
           <label className="flex h-32 cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-white/30 bg-[#F8F5EE] hover:border-white/50">
-            <Upload className="text-main-button size-8" />
-            <p className="text-muted-foreground mt-2 px-4 text-center text-sm">
+            <Upload className="text-dashboard size-8" />
+            <p className="text-dashboard/80 mt-2 px-4 text-center text-sm">
               {images.length > 0 ? (
                 `${images.length} image(s) selected`
               ) : (
                 <>
                   Drop your images here or{' '}
-                  <span className="text-main-button">click to browse</span>
+                  <span className="text-dashboard">click to browse</span>
                 </>
               )}
             </p>
@@ -308,7 +308,7 @@ export const AddProduct = ({ product, onDone }: { product?: AdminProduct; onDone
         <div className="flex justify-end">
           <Button
             type="submit"
-            className="text-main-button bg-white px-8 hover:bg-white/90"
+            className="text-dashboard bg-white px-8 hover:bg-white/90"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'SAVING...' : product ? 'SAVE CHANGES' : 'ADD PRODUCT'}

@@ -22,7 +22,7 @@ export const YourPerformance = ({
       count: `${performance.new_orders} new orders`,
       status: 'Processing',
       bgColor: 'bg-teal-100',
-      iconColor: 'text-teal-600',
+      iconColor: 'text-teal-700',
     },
     {
       id: 'shipped',
@@ -30,7 +30,7 @@ export const YourPerformance = ({
       count: `${performance.shipped_orders} orders`,
       status: 'Shipped',
       bgColor: 'bg-orange-100',
-      iconColor: 'text-orange-500',
+      iconColor: 'text-orange-700',
     },
     {
       id: 'delivered',
@@ -38,7 +38,7 @@ export const YourPerformance = ({
       count: `${performance.delivered_orders} orders`,
       status: 'Delivered',
       bgColor: 'bg-cyan-100',
-      iconColor: 'text-cyan-500',
+      iconColor: 'text-cyan-700',
     },
   ]
 

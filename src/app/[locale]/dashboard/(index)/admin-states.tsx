@@ -49,18 +49,18 @@ export const AdminStates = ({ data }: { data: DashboardSummary }) => {
         <Card key={stat.id} className="border-0 bg-[#F7F5ED]">
           <CardContent className="space-y-2">
             <div className="flex items-start justify-between">
-              <div className="bg-main-button/10 rounded-lg p-2">
-                <stat.icon className="text-main-button size-5" />
+              <div className="bg-dashboard/10 rounded-lg p-2">
+                <stat.icon className="text-dashboard size-5" />
               </div>
               <span
                 title="Compared to the previous 30 days"
-                className={cn('text-xs', stat.change < 0 ? 'text-red-500' : 'text-muted-foreground')}
+                className={cn('text-xs', stat.change < 0 ? 'text-red-600' : 'text-dashboard/80')}
               >
                 {stat.change > 0 ? '+' : ''}
                 {stat.change}%
               </span>
             </div>
-            <p className="text-muted-foreground text-sm">{stat.label}</p>
+            <p className="text-dashboard/80 text-sm">{stat.label}</p>
             <p className="text-2xl font-semibold">{stat.value}</p>
           </CardContent>
         </Card>

@@ -45,7 +45,7 @@ export const SaleCards = ({ chart, filters, onFiltersChange }: SaleCardsProps) =
             <button
               type="button"
               aria-label="Previous year"
-              className="text-muted-foreground hover:text-foreground"
+              className="text-dashboard hover:text-foreground"
               onClick={() => changeYear(-1)}
             >
               <ChevronLeft className="size-5" />
@@ -54,7 +54,7 @@ export const SaleCards = ({ chart, filters, onFiltersChange }: SaleCardsProps) =
             <button
               type="button"
               aria-label="Next year"
-              className="text-muted-foreground hover:text-foreground disabled:opacity-30"
+              className="text-dashboard hover:text-foreground disabled:opacity-60"
               disabled={chart.year >= new Date().getFullYear()}
               onClick={() => changeYear(1)}
             >

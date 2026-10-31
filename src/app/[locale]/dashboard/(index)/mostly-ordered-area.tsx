@@ -29,7 +29,7 @@ export const MostlyOrderedArea = ({ areas }: { areas: DashboardSummary['top_area
           <ul className="mt-4 flex flex-wrap gap-2">
             {areas.map((area) => (
               <li key={area.city} className="rounded bg-[#F7F5ED] px-3 py-1 text-sm">
-                {area.city} <span className="text-muted-foreground">· {area.orders}</span>
+                {area.city} <span className="text-dashboard/80">· {area.orders}</span>
               </li>
             ))}
           </ul>

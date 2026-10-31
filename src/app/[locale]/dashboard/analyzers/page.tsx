@@ -92,11 +92,11 @@ const Analyzer = () => {
                   label="Select all users"
                 />
               </TableHead>
-              <TableHead className="text-main-button font-medium">Customer Name</TableHead>
-              <TableHead className="text-main-button font-medium">Email</TableHead>
-              <TableHead className="text-main-button font-medium">Join Date</TableHead>
-              <TableHead className="text-main-button font-medium">Status</TableHead>
-              <TableHead className="text-main-button text-right font-medium">Action</TableHead>
+              <TableHead className="text-dashboard font-medium">Customer Name</TableHead>
+              <TableHead className="text-dashboard font-medium">Email</TableHead>
+              <TableHead className="text-dashboard font-medium">Join Date</TableHead>
+              <TableHead className="text-dashboard font-medium">Status</TableHead>
+              <TableHead className="text-dashboard text-right font-medium">Action</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -117,18 +117,18 @@ const Analyzer = () => {
                     label={`Select ${user.full_name ?? user.email}`}
                   />
                 </TableCell>
-                <TableCell className="text-main-button font-medium">
+                <TableCell className="text-dashboard font-medium">
                   {user.full_name || '-'}
                 </TableCell>
-                <TableCell className="text-main-button">{user.email}</TableCell>
-                <TableCell className="text-main-button">{formatDate(user.join_date)}</TableCell>
+                <TableCell className="text-dashboard">{user.email}</TableCell>
+                <TableCell className="text-dashboard">{formatDate(user.join_date)}</TableCell>
                 <TableCell>
                   <span
                     className={cn(
                       'rounded-full px-4 py-1 text-xs font-medium',
                       user.active_status === 'active'
-                        ? 'bg-green-100 text-green-600'
-                        : 'bg-red-100 text-red-500'
+                        ? 'bg-green-100 text-green-800'
+                        : 'bg-red-100 text-red-700'
                     )}
                   >
                     {user.active_status === 'active' ? 'Active' : 'Inactive'}
@@ -139,7 +139,7 @@ const Analyzer = () => {
                     <button
                       type="button"
                       aria-label={`View ${user.full_name ?? user.email}`}
-                      className="text-main-button/60 hover:text-main-button p-1"
+                      className="text-dashboard/60 hover:text-dashboard p-1"
                       onClick={() => setViewing(user.id)}
                     >
                       <Eye className="size-4" />

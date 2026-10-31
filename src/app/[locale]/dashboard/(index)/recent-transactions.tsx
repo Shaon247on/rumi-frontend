@@ -4,7 +4,7 @@ import { formatSAR } from '@/lib/price'
 import { format } from 'date-fns'
 
 const STATUS_STYLES: Record<string, string> = {
-  paid: 'bg-emerald-100 text-emerald-600',
+  paid: 'bg-emerald-100 text-emerald-800',
   pending: 'bg-amber-100 text-amber-700',
 }
 

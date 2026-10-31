@@ -23,7 +23,7 @@ export const ProductView = ({
   const { basePrice, finalPrice, hasDiscount } = getProductPricing(product)
 
   return (
-    <div className="bg-main-button space-y-6">
+    <div className="bg-dashboard space-y-6">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
         {/* Left - Product Image */}
         <div className="relative aspect-square overflow-hidden rounded-lg bg-[#f5f4f3]">
@@ -50,7 +50,7 @@ export const ProductView = ({
           <div className="flex flex-wrap items-baseline gap-2">
             <span className="text-2xl font-medium text-white">{formatSAR(finalPrice)}</span>
             {hasDiscount ? (
-              <span className="text-sm text-white/40 line-through">{formatSAR(basePrice)}</span>
+              <span className="text-sm text-white/70 line-through">{formatSAR(basePrice)}</span>
             ) : null}
             <span className="text-sm text-white/60">{product.size}</span>
           </div>
@@ -70,7 +70,7 @@ export const ProductView = ({
           <div className="pt-4">
             <Button
               type="button"
-              className="text-main-button w-full bg-white hover:bg-white/90 lg:w-auto lg:px-12"
+              className="text-dashboard w-full bg-white hover:bg-white/90 lg:w-auto lg:px-12"
               onClick={onEdit}
             >
               EDIT

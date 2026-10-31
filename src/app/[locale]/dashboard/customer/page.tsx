@@ -14,6 +14,7 @@ import {
   TABLE_PAGE_SIZE,
   useRowSelection,
   useTableFilters,
+  greenPanelClassName,
 } from '@/components/dashboard'
 import { buttonVariants } from '@/components/ui'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
@@ -30,6 +31,7 @@ import { Eye } from 'lucide-react'
 import { useState } from 'react'
 import { AddCustomer } from './add-customer'
 import { ViewCustomer } from './view-customer'
+import { cn } from '@/lib/utils'
 
 const FILTER_OPTIONS = [
   { value: 'all', label: 'All' },
@@ -81,7 +83,7 @@ const Customer = () => {
           <DialogTrigger className={buttonVariants({ variant: 'outline' })}>
             ADD CUSTOMER
           </DialogTrigger>
-          <DialogContent className="bg-main-button! border-2 border-black/30 sm:min-w-xl">
+          <DialogContent className={cn(greenPanelClassName, 'border-2 border-black/30 sm:min-w-xl')}>
             <AddCustomer onDone={() => setIsAdding(false)} />
           </DialogContent>
         </Dialog>
@@ -105,13 +107,13 @@ const Customer = () => {
                   label="Select all customers"
                 />
               </TableHead>
-              <TableHead className="text-main-button font-medium">Customer Name</TableHead>
-              <TableHead className="text-main-button font-medium">ID</TableHead>
-              <TableHead className="text-main-button font-medium">Location</TableHead>
-              <TableHead className="text-main-button font-medium">Orders</TableHead>
-              <TableHead className="text-main-button font-medium">Total Spent</TableHead>
-              <TableHead className="text-main-button font-medium">Phone Number</TableHead>
-              <TableHead className="text-main-button text-right font-medium">Action</TableHead>
+              <TableHead className="text-dashboard font-medium">Customer Name</TableHead>
+              <TableHead className="text-dashboard font-medium">ID</TableHead>
+              <TableHead className="text-dashboard font-medium">Location</TableHead>
+              <TableHead className="text-dashboard font-medium">Orders</TableHead>
+              <TableHead className="text-dashboard font-medium">Total Spent</TableHead>
+              <TableHead className="text-dashboard font-medium">Phone Number</TableHead>
+              <TableHead className="text-dashboard text-right font-medium">Action</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -132,22 +134,22 @@ const Customer = () => {
                     label={`Select ${customer.customer_name ?? customer.id_format}`}
                   />
                 </TableCell>
-                <TableCell className="text-main-button font-medium">
+                <TableCell className="text-dashboard font-medium">
                   {customer.customer_name || '-'}
                 </TableCell>
-                <TableCell className="text-main-button">{customer.id_format}</TableCell>
-                <TableCell className="text-main-button max-w-[250px] whitespace-normal">
+                <TableCell className="text-dashboard">{customer.id_format}</TableCell>
+                <TableCell className="text-dashboard max-w-[250px] whitespace-normal">
                   {customer.location || '-'}
                 </TableCell>
-                <TableCell className="text-main-button">{customer.orders}</TableCell>
-                <TableCell className="text-main-button">{formatSAR(customer.total_spent)}</TableCell>
-                <TableCell className="text-main-button">{customer.phone_number || '-'}</TableCell>
+                <TableCell className="text-dashboard">{customer.orders}</TableCell>
+                <TableCell className="text-dashboard">{formatSAR(customer.total_spent)}</TableCell>
+                <TableCell className="text-dashboard">{customer.phone_number || '-'}</TableCell>
                 <TableCell>
                   <div className="flex items-center justify-end gap-2">
                     <button
                       type="button"
                       aria-label={`View ${customer.customer_name ?? customer.id_format}`}
-                      className="text-main-button/60 hover:text-main-button p-1"
+                      className="text-dashboard/60 hover:text-dashboard p-1"
                       onClick={() => setViewing(customer.membership_id)}
                     >
                       <Eye className="size-4" />
@@ -170,7 +172,7 @@ const Customer = () => {
       <Dialog open={viewing !== null} onOpenChange={(open) => !open && setViewing(null)}>
         <DialogContent
           showCloseButton={false}
-          className="bg-main-button max-h-[90vh] max-w-5xl! overflow-y-auto"
+          className="bg-dashboard max-h-[90vh] max-w-5xl! overflow-y-auto"
         >
           {viewing ? (
             <ViewCustomer membershipId={viewing} onClose={() => setViewing(null)} />

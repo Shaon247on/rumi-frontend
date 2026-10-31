@@ -13,10 +13,10 @@ export const PerformanceByCategory = ({
   return (
     <div className="rounded-xl bg-[#f5f4f3] p-6">
       <div className="mb-8 flex flex-wrap items-center justify-between gap-3">
-        <h2 className="text-main-button text-xl font-semibold">Performance by Category</h2>
-        <div className="text-main-button/70 flex items-center gap-4 text-xs">
+        <h2 className="text-dashboard text-xl font-semibold">Performance by Category</h2>
+        <div className="text-dashboard/80 flex items-center gap-4 text-xs">
           <span className="flex items-center gap-1.5">
-            <span className="bg-main-button size-3 rounded-sm" /> Last 30 days
+            <span className="bg-dashboard size-3 rounded-sm" /> Last 30 days
           </span>
           <span className="flex items-center gap-1.5">
             <span className="size-3 rounded-sm bg-[#4a3f35]/50" /> Previous 30 days
@@ -31,7 +31,7 @@ export const PerformanceByCategory = ({
           {/* Y-axis labels */}
           <div className="absolute top-0 left-0 flex h-64 flex-col justify-between text-right">
             {ticks.map((tick) => (
-              <span key={tick} className="text-main-button/50 text-xs">
+              <span key={tick} className="text-dashboard/80 text-xs">
                 {tick}
               </span>
             ))}
@@ -39,13 +39,13 @@ export const PerformanceByCategory = ({
 
           {/* Chart area */}
           <div className="ml-10">
-            <div className="border-main-button/20 relative h-64 border-b border-l border-dashed">
+            <div className="border-dashboard/20 relative h-64 border-b border-l border-dashed">
               {/* Grid lines */}
               <div className="absolute inset-0 flex flex-col justify-between">
-                <div className="border-main-button/20 border-t border-dashed" />
-                <div className="border-main-button/20 border-t border-dashed" />
-                <div className="border-main-button/20 border-t border-dashed" />
-                <div className="border-main-button/20 border-t border-dashed" />
+                <div className="border-dashboard/20 border-t border-dashed" />
+                <div className="border-dashboard/20 border-t border-dashed" />
+                <div className="border-dashboard/20 border-t border-dashed" />
+                <div className="border-dashboard/20 border-t border-dashed" />
               </div>
 
               {/* Bars */}
@@ -53,7 +53,7 @@ export const PerformanceByCategory = ({
                 {categories.map((item) => (
                   <div key={item.category} className="flex h-full items-end gap-2">
                     <div
-                      className="bg-main-button w-12 rounded-t"
+                      className="bg-dashboard w-12 rounded-t"
                       title={`Last 30 days: ${item.current}`}
                       style={{ height: `${(item.current / maxValue) * 100}%` }}
                     />
@@ -70,7 +70,7 @@ export const PerformanceByCategory = ({
             {/* X-axis labels */}
             <div className="mt-4 flex justify-around px-8">
               {categories.map((item) => (
-                <span key={item.category} className="text-main-button/70 text-sm">
+                <span key={item.category} className="text-dashboard/80 text-sm">
                   {item.category}
                 </span>
               ))}

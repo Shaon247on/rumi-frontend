@@ -14,6 +14,7 @@ import {
   TABLE_PAGE_SIZE,
   useRowSelection,
   useTableFilters,
+  greenPanelClassName,
 } from '@/components/dashboard'
 import { Dialog, DialogContent } from '@/components/ui/dialog'
 import {
@@ -96,13 +97,13 @@ const Orders = () => {
                   label="Select all orders"
                 />
               </TableHead>
-              <TableHead className="text-main-button font-medium">Order</TableHead>
-              <TableHead className="text-main-button font-medium">Date & Time</TableHead>
-              <TableHead className="text-main-button font-medium">Customer</TableHead>
-              <TableHead className="text-main-button font-medium">Payment Status</TableHead>
-              <TableHead className="text-main-button font-medium">Total</TableHead>
-              <TableHead className="text-main-button font-medium">Order Status</TableHead>
-              <TableHead className="text-main-button text-right font-medium">Action</TableHead>
+              <TableHead className="text-dashboard font-medium">Order</TableHead>
+              <TableHead className="text-dashboard font-medium">Date & Time</TableHead>
+              <TableHead className="text-dashboard font-medium">Customer</TableHead>
+              <TableHead className="text-dashboard font-medium">Payment Status</TableHead>
+              <TableHead className="text-dashboard font-medium">Total</TableHead>
+              <TableHead className="text-dashboard font-medium">Order Status</TableHead>
+              <TableHead className="text-dashboard text-right font-medium">Action</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -123,9 +124,9 @@ const Orders = () => {
                     label={`Select order ${order.id}`}
                   />
                 </TableCell>
-                <TableCell className="text-main-button font-medium">#{order.id}</TableCell>
-                <TableCell className="text-main-button">{formatDate(order.created_at)}</TableCell>
-                <TableCell className="text-main-button">{order.full_name}</TableCell>
+                <TableCell className="text-dashboard font-medium">#{order.id}</TableCell>
+                <TableCell className="text-dashboard">{formatDate(order.created_at)}</TableCell>
+                <TableCell className="text-dashboard">{order.full_name}</TableCell>
                 <TableCell>
                   <span
                     className={cn(
@@ -136,7 +137,7 @@ const Orders = () => {
                     {order.payment_status}
                   </span>
                 </TableCell>
-                <TableCell className="text-main-button">{formatSAR(order.total_amount)}</TableCell>
+                <TableCell className="text-dashboard">{formatSAR(order.total_amount)}</TableCell>
                 <TableCell>
                   <span
                     className={cn(
@@ -152,7 +153,7 @@ const Orders = () => {
                     <button
                       type="button"
                       aria-label={`Edit order ${order.id}`}
-                      className="text-main-button/60 hover:text-main-button p-1"
+                      className="text-dashboard/60 hover:text-dashboard p-1"
                       onClick={() => setEditing(order)}
                     >
                       <Pencil className="size-4" />
@@ -173,7 +174,7 @@ const Orders = () => {
       <TablePagination page={page} count={data?.count ?? 0} onPageChange={setPage} />
 
       <Dialog open={editing !== null} onOpenChange={(open) => !open && setEditing(null)}>
-        <DialogContent className="bg-main-button max-h-[90vh] overflow-y-auto sm:max-w-xl">
+        <DialogContent className={cn(greenPanelClassName, 'max-h-[90vh] overflow-y-auto sm:max-w-xl')}>
           {editing ? (
             <EditOrder key={editing.id} order={editing} onDone={() => setEditing(null)} />
           ) : null}

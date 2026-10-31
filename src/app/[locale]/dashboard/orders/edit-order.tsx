@@ -59,7 +59,7 @@ export const EditOrder = ({ order, onDone }: { order: AdminOrder; onDone: () => 
           value={status}
           disabled={isCancelled}
           onChange={(event) => setStatus(event.target.value)}
-          className="text-main-button h-11 w-full rounded-md bg-[#F8F5EE] px-3 text-sm outline-none disabled:opacity-60"
+          className="text-dashboard h-11 w-full rounded-md bg-[#F8F5EE] px-3 text-sm outline-none disabled:opacity-60"
         >
           {ORDER_STATUS_OPTIONS.map((option) => (
             <option key={option.value} value={option.value}>
@@ -77,7 +77,7 @@ export const EditOrder = ({ order, onDone }: { order: AdminOrder; onDone: () => 
       <div className="flex justify-end">
         <Button
           type="button"
-          className="text-main-button bg-white px-10 hover:bg-white/90"
+          className="text-dashboard bg-white px-10 hover:bg-white/90"
           disabled={isPending || isCancelled || status === order.status}
           onClick={() => void handleSave()}
         >

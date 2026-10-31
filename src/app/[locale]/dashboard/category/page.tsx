@@ -97,11 +97,11 @@ const CategoryPage = () => {
                   label="Select all categories"
                 />
               </TableHead>
-              <TableHead className="text-main-button font-medium">Category</TableHead>
-              <TableHead className="text-main-button font-medium">Quantity</TableHead>
-              <TableHead className="text-main-button font-medium">Sale</TableHead>
-              <TableHead className="text-main-button font-medium">Start Date</TableHead>
-              <TableHead className="text-main-button text-right font-medium">Action</TableHead>
+              <TableHead className="text-dashboard font-medium">Category</TableHead>
+              <TableHead className="text-dashboard font-medium">Quantity</TableHead>
+              <TableHead className="text-dashboard font-medium">Sale</TableHead>
+              <TableHead className="text-dashboard font-medium">Start Date</TableHead>
+              <TableHead className="text-dashboard text-right font-medium">Action</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -133,18 +133,18 @@ const CategoryPage = () => {
                         className="object-cover"
                       />
                     </div>
-                    <span className="text-main-button font-medium">{category.name}</span>
+                    <span className="text-dashboard font-medium">{category.name}</span>
                   </div>
                 </TableCell>
-                <TableCell className="text-main-button">{category.quantity}</TableCell>
-                <TableCell className="text-main-button">{category.sale}</TableCell>
-                <TableCell className="text-main-button">{formatDate(category.created_at)}</TableCell>
+                <TableCell className="text-dashboard">{category.quantity}</TableCell>
+                <TableCell className="text-dashboard">{category.sale}</TableCell>
+                <TableCell className="text-dashboard">{formatDate(category.created_at)}</TableCell>
                 <TableCell>
                   <div className="flex items-center justify-end gap-2">
                     <button
                       type="button"
                       aria-label={`Edit ${category.name}`}
-                      className="text-main-button/60 hover:text-main-button p-1"
+                      className="text-dashboard/60 hover:text-dashboard p-1"
                       onClick={() => setEditing(category)}
                     >
                       <Pencil className="size-4" />

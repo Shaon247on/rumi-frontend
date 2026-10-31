@@ -26,7 +26,7 @@ export const AdminCustomersCharts = ({ chart }: { chart: WeeklyChart }) => {
             <p className="text-muted-foreground text-sm">Last 7 days</p>
           </div>
           <span
-            className={`text-lg font-medium ${chart.change < 0 ? 'text-red-500' : 'text-teal-500'}`}
+            className={`text-lg font-medium ${chart.change < 0 ? 'text-red-600' : 'text-teal-700'}`}
           >
             {chart.change > 0 ? '+' : ''}
             {chart.change}%
@@ -59,7 +59,7 @@ export const AdminCustomersCharts = ({ chart }: { chart: WeeklyChart }) => {
           </div>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="bg-main-button size-3 rounded-full" />
+              <div className="bg-dashboard size-3 rounded-full" />
               <span className="text-sm">Last Week</span>
             </div>
             <span className="font-medium">{chart.last_week.toLocaleString()}</span>

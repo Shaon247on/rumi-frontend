@@ -11,8 +11,8 @@ import Image from 'next/image'
 
 const StepList = ({ title, steps }: { title: string; steps?: AdminRoutineStep[] }) => (
   <div>
-    <p className="text-main-button text-sm font-medium">{title}</p>
-    <ul className="text-main-button/70 mt-1 space-y-1 text-sm">
+    <p className="text-dashboard text-sm font-medium">{title}</p>
+    <ul className="text-dashboard/80 mt-1 space-y-1 text-sm">
       {(steps ?? []).map((step, index) => (
         <li key={`${title}-${index}`}>
           {step.step ? `${step.step}: ` : ''}
@@ -29,16 +29,16 @@ const RoutineEntry = ({ routine }: { routine: AdminRoutine }) => {
   return (
     <div className="rounded-lg bg-white p-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <p className="text-main-button font-medium capitalize">
+        <p className="text-dashboard font-medium capitalize">
           {profile?.skin_type ?? 'Skin analysis'}
           {profile?.age ? ` · ${profile.age} years` : ''}
         </p>
-        <p className="text-main-button/60 text-xs">
+        <p className="text-dashboard/80 text-xs">
           {format(new Date(routine.created_at), 'dd MMM yyyy, h:mm a')}
         </p>
       </div>
       {profile?.concerns?.length ? (
-        <p className="text-main-button/70 mt-1 text-sm">Concerns: {profile.concerns.join(', ')}</p>
+        <p className="text-dashboard/80 mt-1 text-sm">Concerns: {profile.concerns.join(', ')}</p>
       ) : null}
       <div className="mt-3 grid gap-4 sm:grid-cols-2">
         <StepList title="Morning" steps={routine.routine_data?.am_routine} />
@@ -72,24 +72,24 @@ export const ViewAnalyzer = ({ id }: { id: number }) => {
                     className="object-cover"
                   />
                 ) : (
-                  <UserRound className="text-main-button/40 size-8" />
+                  <UserRound className="text-dashboard/80 size-8" />
                 )}
               </div>
               <div>
-                <h2 className="text-main-button text-xl font-semibold">
+                <h2 className="text-dashboard text-xl font-semibold">
                   {analyzer.full_name || analyzer.email}
                 </h2>
                 {analyzer.location ? (
-                  <p className="text-main-button/70 text-sm">{analyzer.location}</p>
+                  <p className="text-dashboard/80 text-sm">{analyzer.location}</p>
                 ) : null}
-                <p className="text-main-button/70 text-sm">{analyzer.order_count} Orders</p>
-                <p className="text-main-button/70 text-sm">
+                <p className="text-dashboard/80 text-sm">{analyzer.order_count} Orders</p>
+                <p className="text-dashboard/80 text-sm">
                   User for {formatDistanceToNow(new Date(analyzer.join_date))}
                 </p>
               </div>
             </div>
             <div className="mt-6 border-t border-gray-300" />
-            <h3 className="text-main-button mt-6 mb-3 font-semibold">
+            <h3 className="text-dashboard mt-6 mb-3 font-semibold">
               Analyze History ({analyzer.routines.length})
             </h3>
             <div className="max-h-[50vh] space-y-3 overflow-y-auto">

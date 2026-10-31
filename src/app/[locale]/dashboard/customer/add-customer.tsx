@@ -90,7 +90,7 @@ export const AddCustomer = ({ onDone }: { onDone: () => void }) => {
         <div className="flex justify-end pt-4">
           <Button
             type="submit"
-            className="text-main-button bg-white px-12 hover:bg-white/90"
+            className="text-dashboard bg-white px-12 hover:bg-white/90"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'SAVING...' : 'SAVE'}

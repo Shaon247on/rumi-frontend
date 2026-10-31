@@ -94,19 +94,19 @@ export const ViewCustomer = ({
                       className="object-cover"
                     />
                   ) : (
-                    <UserRound className="text-main-button/40 size-8" />
+                    <UserRound className="text-dashboard/80 size-8" />
                   )}
                 </div>
                 <div>
-                  <h2 className="text-main-button text-xl font-semibold">
+                  <h2 className="text-dashboard text-xl font-semibold">
                     {customer.name || customer.email}
                   </h2>
-                  <p className="text-main-button/70 text-sm">#{customer.membership_id}</p>
-                  <p className="text-main-button/70 text-sm">{customer.order_count} Orders</p>
-                  <p className="text-main-button/70 text-sm">
+                  <p className="text-dashboard/80 text-sm">#{customer.membership_id}</p>
+                  <p className="text-dashboard/80 text-sm">{customer.order_count} Orders</p>
+                  <p className="text-dashboard/80 text-sm">
                     Customer for {formatDistanceToNow(new Date(customer.join_date))}
                   </p>
-                  <p className="text-main-button/70 text-sm">
+                  <p className="text-dashboard/80 text-sm">
                     Total spent {formatSAR(customer.total_spent)}
                   </p>
                 </div>
@@ -115,23 +115,23 @@ export const ViewCustomer = ({
 
             {/* Customer Orders Table */}
             <div className="rounded-xl bg-white p-6">
-              <h3 className="text-main-button mb-4 text-lg font-semibold">Customer Orders</h3>
+              <h3 className="text-dashboard mb-4 text-lg font-semibold">Customer Orders</h3>
               <Table>
                 <TableHeader>
                   <TableRow className="border-b-0">
-                    <TableHead className="text-main-button/70 text-xs font-medium">Order</TableHead>
-                    <TableHead className="text-main-button/70 text-xs font-medium">Date</TableHead>
-                    <TableHead className="text-main-button/70 text-xs font-medium">
+                    <TableHead className="text-dashboard/80 text-xs font-medium">Order</TableHead>
+                    <TableHead className="text-dashboard/80 text-xs font-medium">Date</TableHead>
+                    <TableHead className="text-dashboard/80 text-xs font-medium">
                       Order Status
                     </TableHead>
-                    <TableHead className="text-main-button/70 text-xs font-medium">Price</TableHead>
+                    <TableHead className="text-dashboard/80 text-xs font-medium">Price</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {customer.orders.map((order) => (
                     <TableRow key={order.id} className="border-b-0">
-                      <TableCell className="text-main-button text-sm">#{order.id}</TableCell>
-                      <TableCell className="text-main-button text-sm">
+                      <TableCell className="text-dashboard text-sm">#{order.id}</TableCell>
+                      <TableCell className="text-dashboard text-sm">
                         {format(new Date(order.created_at), 'MMM d, h:mm a')}
                       </TableCell>
                       <TableCell>
@@ -144,7 +144,7 @@ export const ViewCustomer = ({
                           {getOrderStatusLabel(order.status)}
                         </span>
                       </TableCell>
-                      <TableCell className="text-main-button text-sm">
+                      <TableCell className="text-dashboard text-sm">
                         {formatSAR(order.total_amount)}
                       </TableCell>
                     </TableRow>
@@ -164,11 +164,11 @@ export const ViewCustomer = ({
           {/* Right Column - Overview Card */}
           <div className="rounded-xl bg-white p-6">
             <div className="mb-6 flex items-center justify-between">
-              <h3 className="text-main-button text-lg font-semibold">Overview</h3>
+              <h3 className="text-dashboard text-lg font-semibold">Overview</h3>
               {!isEditing ? (
                 <button
                   type="button"
-                  className="text-sm text-blue-500 hover:underline"
+                  className="text-sm text-blue-600 hover:underline"
                   onClick={startEditing}
                 >
                   Edit
@@ -186,7 +186,7 @@ export const ViewCustomer = ({
                   ] as const
                 ).map(([key, label]) => (
                   <div key={key}>
-                    <label htmlFor={`customer-${key}`} className="text-main-button/50 text-xs">
+                    <label htmlFor={`customer-${key}`} className="text-dashboard/80 text-xs">
                       {label}
                     </label>
                     <Input
@@ -201,7 +201,7 @@ export const ViewCustomer = ({
                 <div className="flex gap-2 pt-2">
                   <Button
                     type="button"
-                    className="bg-main-button hover:bg-main-button/90 flex-1 text-white"
+                    className="bg-dashboard hover:bg-dashboard/90 flex-1 text-white"
                     disabled={isSaving}
                     onClick={() => void saveChanges()}
                   >
@@ -215,18 +215,18 @@ export const ViewCustomer = ({
             ) : (
               <div className="space-y-6">
                 <div>
-                  <p className="text-main-button/50 text-xs">Address</p>
-                  <p className="text-main-button text-sm">{customer.address || '-'}</p>
+                  <p className="text-dashboard/80 text-xs">Address</p>
+                  <p className="text-dashboard text-sm">{customer.address || '-'}</p>
                 </div>
 
                 <div>
-                  <p className="text-main-button/50 text-xs">Email Address</p>
-                  <p className="text-main-button text-sm break-all">{customer.email}</p>
+                  <p className="text-dashboard/80 text-xs">Email Address</p>
+                  <p className="text-dashboard text-sm break-all">{customer.email}</p>
                 </div>
 
                 <div>
-                  <p className="text-main-button/50 text-xs">Phone</p>
-                  <p className="text-main-button text-sm">{customer.contact_number || '-'}</p>
+                  <p className="text-dashboard/80 text-xs">Phone</p>
+                  <p className="text-dashboard text-sm">{customer.contact_number || '-'}</p>
                 </div>
               </div>
             )}
@@ -242,7 +242,7 @@ export const ViewCustomer = ({
                 trigger={
                   <Button
                     variant="outline"
-                    className="w-full border-red-200 text-red-500 hover:bg-red-50 hover:text-red-600"
+                    className="w-full border-red-200 text-red-600 hover:bg-red-50 hover:text-red-700"
                   >
                     Delete Customer
                   </Button>

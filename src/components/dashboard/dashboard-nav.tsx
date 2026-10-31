@@ -2,13 +2,14 @@
 
 import { useLogout } from '@/api/api-hooks/auth.api-hook'
 import { useRouter } from '@/i18n/navigation'
-import logoLight from '@/assets/icons/logo-full-dark.png'
+import logoLight from '@/assets/icons/logo-light.png'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Link } from '@/i18n/navigation'
 import { useAuthStore } from '@/store/auth.store'
 import { LogOut, Menu, UserRound } from 'lucide-react'
 import Image from 'next/image'
-import { dashboardNavList } from './dashboard-tabs'
+import { cn } from '@/lib/utils'
+import { dashboardNavList, greenPanelClassName } from './dashboard-tabs'
 
 const Avatar = ({ size, image, name }: { size: string; image?: string | null; name: string }) => (
   <div
@@ -17,7 +18,7 @@ const Avatar = ({ size, image, name }: { size: string; image?: string | null; na
     {image ? (
       <Image src={image} alt={name} fill unoptimized className="object-cover" />
     ) : (
-      <UserRound className="text-main-button size-5" />
+      <UserRound className="text-dashboard size-5" />
     )}
   </div>
 )
@@ -40,7 +41,7 @@ export const DashboardNav = () => {
   }
 
   return (
-    <header className="bg-main-button flex items-center justify-between border-b-2 border-white/40 px-4 py-4 text-white lg:px-20">
+    <header className="bg-dashboard flex items-center justify-between border-b-2 border-white/40 px-4 py-4 text-white lg:px-20">
       {/* Logo and tagline */}
       <div className="flex flex-col gap-1 lg:gap-3">
         <Link href="/dashboard">
@@ -70,7 +71,7 @@ export const DashboardNav = () => {
           <SheetTrigger aria-label="Open menu">
             <Menu className="size-6 text-white" />
           </SheetTrigger>
-          <SheetContent side="right" className="bg-main-button w-64 border-white/20">
+          <SheetContent side="right" className={cn(greenPanelClassName, 'w-64 border-white/20')}>
             <div className="flex flex-col gap-6 px-4 pt-8">
               {/* User Info */}
               <div className="flex items-center gap-3">
